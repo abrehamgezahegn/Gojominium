@@ -36,7 +36,7 @@ class RecentPosts extends Component {
 	handleDelete = condoId => {
 		axios({
 			method: "delete",
-			url: "http://localhost:8000/delete_condo",
+			url: "https://gojominium-api.herokuapp.com/delete_condo",
 			data: {
 				condoId: condoId
 			}

@@ -235,7 +235,7 @@ class AddForm2 extends Component {
 		if (!!this.props.editCondo) {
 			axios({
 				method: "put",
-				url: "http://localhost:8000/edit_condo",
+				url: "https://gojominium.herokuapp.com/edit_condo",
 				data: condominium
 			}).then(res => {
 				if (res) {
@@ -252,7 +252,7 @@ class AddForm2 extends Component {
 		} else {
 			axios({
 				method: "post",
-				url: "http://localhost:8000/post",
+				url: "https://gojominium.herokuapp.com/post",
 				data: condominium
 			}).then(res => {
 				if (res) {

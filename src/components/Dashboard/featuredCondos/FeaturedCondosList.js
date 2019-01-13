@@ -13,7 +13,7 @@ class FeaturedCondosList extends Component {
 
 	componentDidMount() {
 		axios
-			.get("http://localhost:8000/get_featured_condos")
+			.get("https://gojominium.herokuapp.com/get_featured_condos")
 			.then(res => {
 				this.setState({ featuredCondos: res.data.featuredCondos });
 			})

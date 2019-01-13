@@ -34,7 +34,7 @@ class NormalLoginForm extends Component {
 			}
 			axios({
 				method: "post",
-				url: "http://localhost:8000/signin",
+				url: "https://gojominium.herokuapp.com/signin",
 				data: {
 					email: this.state.email,
 					password: this.state.password

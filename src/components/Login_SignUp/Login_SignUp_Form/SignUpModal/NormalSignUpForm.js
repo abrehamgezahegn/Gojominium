@@ -52,7 +52,7 @@ class NormalSignUpForm extends Component {
 			} else if (this.state.passErrors.length === 0) {
 				axios({
 					method: "post",
-					url: "http://localhost:8000/register",
+					url: "https://gojominium.herokuapp.com/register",
 					data: {
 						userId: this.state.userId,
 						email: this.state.email,

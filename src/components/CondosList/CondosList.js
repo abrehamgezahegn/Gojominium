@@ -18,7 +18,11 @@ class CondosList extends Component {
 	componentWillMount() {
 		window.scrollTo(0, 0);
 		axios
-			.get(`http://localhost:8000/get_all_condos/${this.state.offsetAll}`)
+			.get(
+				`https://gojominium.herokuapp.com/get_all_condos/${
+					this.state.offsetAll
+				}`
+			)
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {
@@ -38,7 +42,7 @@ class CondosList extends Component {
 		this.setState({ isDisplayingFiltered: true });
 		axios
 			.get(
-				`http://localhost:8000/get_filtered_condos/${location}/${type}/${sellorrent}/${minPrice}/${maxPrice}`
+				`https://gojominium.herokuapp.com/get_filtered_condos/${location}/${type}/${sellorrent}/${minPrice}/${maxPrice}`
 			)
 			.then(res => {
 				if (res) {
@@ -59,7 +63,7 @@ class CondosList extends Component {
 		this.setState({ isDisplayingFiltered: false, offsetAll: 0 });
 
 		axios
-			.get(`http://localhost:8000/get_all_condos/${0}`)
+			.get(`https://gojominium.herokuapp.com/get_all_condos/${0}`)
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {
@@ -74,7 +78,11 @@ class CondosList extends Component {
 
 	handleLoadMore = () => {
 		axios
-			.get(`http://localhost:8000/get_all_condos/${this.state.offsetAll}`)
+			.get(
+				`https://gojominium.herokuapp.com/get_all_condos/${
+					this.state.offsetAll
+				}`
+			)
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {

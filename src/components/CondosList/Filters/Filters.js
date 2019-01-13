@@ -124,7 +124,6 @@ class Filters extends Component {
 							</div>
 							<div>
 								<Select
-									showSearch
 									style={{ width: 160 }}
 									placeholder="Type"
 									optionFilterProp="children"
@@ -143,7 +142,6 @@ class Filters extends Component {
 							</div>
 							<div>
 								<Select
-									showSearch
 									style={{ width: 160 }}
 									placeholder="For"
 									optionFilterProp="children"

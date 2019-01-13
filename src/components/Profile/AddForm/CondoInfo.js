@@ -80,7 +80,6 @@ class CondoInfo extends Component {
 						</div>
 						<div>
 							<Select
-								showSearch
 								style={{ width: 160 }}
 								placeholder="Type"
 								optionFilterProp="children"
@@ -101,7 +100,6 @@ class CondoInfo extends Component {
 						</div>
 						<div>
 							<Select
-								showSearch
 								style={{ width: 200 }}
 								placeholder="Floor"
 								optionFilterProp="children"
@@ -125,7 +123,6 @@ class CondoInfo extends Component {
 						</div>
 						<div>
 							<Select
-								showSearch
 								style={{ width: 160 }}
 								placeholder="For"
 								optionFilterProp="children"

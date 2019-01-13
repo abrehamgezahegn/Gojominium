@@ -1,0 +1,23 @@
+.four-main {
+	margin-top: 80px;
+	height: 60vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.four-message {
+	font-size: 30px;
+	font-weight: 600px;
+	font-family: helvetica;
+	margin-right: 20px;
+}
+
+@media (max-width: 600px) {
+	.four-message {
+		font-size: 20px;
+		margin-top: 20px;
+	}
+}

@@ -1,0 +1,13 @@
+@media (max-width: 1200px) {
+	.the-main-container {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+}
+@media (min-width: 1200px) {
+	.the-main-container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+	}
+}

@@ -1,0 +1,213 @@
+.recent-container {
+	margin-left: 1%;
+	margin-bottom: 20px;
+	margin-top: 3%;
+	margin-right: 2%;
+	width: 98%;
+}
+.recent-container2 {
+	margin-top: 100px;
+}
+
+.recent-header {
+	width: 100%;
+	height: 40px;
+	color: white;
+	background-color: #37474f;
+	border-radius: 2px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+@media (max-width: 450px) {
+	.recent-header {
+		height: 30px;
+	}
+}
+.recent-header-text {
+	font-size: 20px;
+	font-weight: 700;
+	color: rgba(255, 255, 255, 0.89);
+	margin-top: 7px;
+	margin-right: 20px;
+}
+@media (max-width: 500px) {
+	.recent-header-text {
+		font-size: 18px;
+	}
+}
+
+.recent-condos-container {
+	margin-top: 1px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	overflow-x: scroll;
+}
+
+.card {
+	width: 23vw;
+	margin-left: 12px;
+	margin-bottom: 10px;
+	font-family: Trebuchet MS !important;
+}
+
+@media (max-width: 1200px) {
+	.card {
+		width: 30vw;
+	}
+}
+@media (max-width: 900px) {
+	.card {
+		width: 35vw;
+	}
+}
+
+@media (max-width: 600px) {
+	.card {
+		width: 30vh;
+	}
+}
+@media (max-width: 500px) {
+	.card {
+		width: 40vh;
+	}
+}
+
+@media (max-width: 300px) {
+	.card {
+		width: 35vh;
+	}
+}
+
+.card-body {
+	padding-top: 13px !important;
+	padding-right: 5px !important;
+}
+
+.rent-sell-btn {
+	font-size: 9px !important;
+	height: 27px !important;
+	border-radius: 25px !important;
+	padding-right: 20px !important;
+	padding-left: 20px !important;
+	padding-top: 7px !important;
+	padding-bottom: 7px !important;
+	margin-top: 0px !important;
+	margin-left: 0px !important;
+	background-color: #d84315 !important;
+	cursor: none;
+}
+
+/*@media (max-width: 400px) {
+	.recent-header-text {
+		font-size: 15px;
+		padding-top: 5px !important;
+	}
+
+	.rent-sell-btn {
+		font-size: 8px !important;
+		height: 25px !important;
+		width: 80px !important;
+		padding-right: 15px !important;
+		padding-left: 15px !important;
+	}
+
+	.edit-btn {
+		font-size: 10px !important;
+		background-color: #303f9f !important;
+		padding-right: 15px !important;
+		padding-left: 15px !important;
+		padding-top: 4px !important;
+		padding-bottom: 4px !important;
+		border-radius: 17px !important;
+	}
+}
+
+@media (max-width: 900px) {
+	.recent-header-text {
+		font-size: 17px;
+	}
+
+	.rent-sell-btn {
+		font-size: 10px !important;
+		height: 25px !important;
+		width: 80px !important;
+		padding-right: 13px !important;
+		padding-left: 13px !important;
+	}
+
+	.edit-btn {
+		font-size: 12px !important;
+		background-color: #303f9f !important;
+		padding-right: 15px !important;
+		padding-left: 15px !important;
+		padding-top: 4px !important;
+		padding-bottom: 4px !important;
+		border-radius: 17px !important;
+	}
+}*/
+
+.price {
+	font-weight: 800;
+	font-size: 17px;
+	margin-bottom: 2px;
+	word-break: break-all;
+}
+.bed-rooms {
+	margin-bottom: 3px;
+}
+.card-icon {
+	margin-left: 6px;
+	margin-right: 10px;
+}
+.delete-btn {
+	background-color: #c62828 !important;
+	padding-right: 15px !important;
+	padding-left: 15px !important;
+	padding-top: 4px !important;
+	padding-bottom: 4px !important;
+	border-radius: 17px !important;
+}
+.edit-btn {
+	font-size: 12px !important;
+	height: 23px !important;
+	background-color: #303f9f !important;
+	padding-right: 15px !important;
+	padding-left: 15px !important;
+	padding-top: 4px !important;
+	padding-bottom: 4px !important;
+	border-radius: 17px !important;
+}
+.edit-icon {
+	margin-left: 6px;
+}
+
+.recent-condos-container::-webkit-scrollbar {
+	/*width: 12px;   for vertical scrollbars */
+	height: 15px; /* for horizontal scrollbars */
+	padding: 4px;
+	margin-top: 10px;
+}
+@media (max-width: 600px) {
+	.recent-condos-container::-webkit-scrollbar {
+		/*width: 12px;   for vertical scrollbars */
+		height: 8px; /* for horizontal scrollbars */
+	}
+}
+@media (max-width: 1000px) {
+	.recent-condos-container::-webkit-scrollbar {
+		/*width: 12px;   for vertical scrollbars */
+		height: 12px; /* for horizontal scrollbars */
+	}
+}
+.recent-condos-container::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.89);
+}
+
+.recent-condos-container::-webkit-scrollbar-thumb {
+	background: #757575;
+	border-radius: 5px;
+	margin-top: 5px;
+}

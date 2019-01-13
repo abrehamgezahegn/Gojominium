@@ -1,0 +1,115 @@
+.main-card-container {
+	width: 32%;
+	height: 360px !important;
+	margin-right: 10px !important;
+	margin-bottom: 40px !important;
+	padding-right: 20px;
+	padding-left: 10px;
+	/*padding-bottom: 40px !important;*/
+	color: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 960px) {
+	.main-card-container {
+		width: 48%;
+	}
+}
+
+@media (max-width: 650px) {
+	.main-card-container {
+		width: 48%;
+		margin-right: 10px !important;
+	}
+}
+@media (max-width: 490px) {
+	.main-card-container {
+		width: 90%;
+	}
+}
+.flipping-card-container {
+	width: 100% !important;
+}
+.flipping-card {
+	background-color: #263238 !important;
+	width: 100% !important;
+	height: 360px !important;
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+.front {
+	background-color: #263238 !important;
+	width: 100% !important;
+	height: 360px !important;
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+.back {
+	background-color: #263238 !important;
+	width: 100% !important;
+	height: 360px !important;
+	padding-left: 20px !important;
+	padding-top: 20px !important;
+	padding-right: 10px;
+	overflow-y: scroll;
+}
+
+.back:hover::-webkit-scrollbar {
+	width: 12px;
+	/*height: 15px;  for horizontal scrollbars */
+}
+@media (max-width: 600px) {
+	.back:hover::-webkit-scrollbar {
+		width: 7px;
+		/*height: 15px;  for horizontal scrollbars */
+	}
+}
+@media (max-width: 380px) {
+	.back:hover::-webkit-scrollbar {
+		width: 4px;
+		/*height: 15px;  for horizontal scrollbars */
+	}
+}
+.back:hover::-webkit-scrollbar-track {
+	background: #263238;
+	border-radius: 5px;
+}
+
+.back:hover::-webkit-scrollbar-thumb {
+	background: #757575;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+
+.main-card {
+	width: 100% !important;
+	height: 360px !important;
+	margin-left: 0px;
+	padding: 0px;
+	margin-top: 0px !important;
+}
+
+@media (max-width: 1200px) {
+	.main-card {
+		padding-right: 10px !important;
+	}
+}
+
+.col {
+	padding: 0px !important;
+}
+.main-card-img {
+	height: 100%;
+}
+.feature-btn {
+	background-color: #9e9d24;
+}
+.more-btn {
+	border: none;
+	color: white;
+	border-radius: 5px;
+}
+
+/*.additional-f {
+	font-family: Arial;
+}*/

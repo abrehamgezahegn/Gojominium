@@ -1,0 +1,39 @@
+.ant-modal-wrap {
+	z-index: 100000000 !important;
+}
+.ant-form-item-children {
+	display: flex !important;
+	flex-direction: column !important;
+}
+.ant-modal-footer {
+	display: none !important;
+}
+.ant-modal-body {
+	padding-bottom: 0.3px !important;
+}
+@media (min-width: 765px) {
+	.ant-modal {
+		width: 350px !important;
+	}
+}
+
+.ant-form-explain {
+	padding-top: 5px !important;
+	padding-bottom: 15px !important;
+}
+
+.pass-error-mes {
+	color: red;
+	font-size: 12px;
+	height: 20px;
+	width: 100%;
+	margin-bottom: 3px;
+	font-weight: 500px;
+}
+
+@media (max-width: 600px) {
+	.pass-error-mes {
+		font-size: 10px;
+		font-weight: 500;
+	}
+}

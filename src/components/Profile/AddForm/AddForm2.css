@@ -1,0 +1,118 @@
+.step-form-main-container {
+	background-color: #263238;
+	margin-bottom: 200px;
+}
+.step-form-header {
+	color: rgba(255, 255, 255, 0.87);
+	width: 98%;
+	border-bottom: 2px #d84315 solid;
+	border-radius: 2px;
+	font-weight: 600 !important;
+	font-size: 28px;
+	margin-left: 5px;
+	padding-top: 17px;
+	padding-left: 20px;
+}
+
+.steps-content {
+	margin-top: 16px;
+	border-radius: 6px;
+	min-height: 200px;
+	text-align: center;
+	padding-top: 20px;
+	background-color: #263238;
+}
+
+.steps-title {
+	text-decoration: underline;
+}
+
+.steps-action {
+	margin-top: 24px;
+}
+.ant-steps {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	color: white;
+
+	padding-top: 20px;
+}
+.ant-steps-finish-icon {
+	color: green !important;
+	width: 20px !important;
+	height: 30px !important;
+}
+.steps-action {
+	display: flex;
+	justify-content: flex-center;
+	padding-left: 20px;
+	width: 100%;
+}
+.step-btn {
+	padding: 5px 10px 5px 10px !important;
+	border: none;
+	color: white;
+	background-color: #3f729b;
+	outline: none;
+	margin-bottom: 35px;
+	cursor: pointer;
+}
+
+.step-btn:hover {
+	background-color: #4285f4;
+}
+
+.other-inputs-container {
+	padding-left: 25px;
+}
+
+.add-info {
+	color: white;
+}
+.custom-control {
+	cursor: pointer;
+}
+.checkbox-box {
+	width: 33px !important;
+	height: 18px !important;
+	cursor: pointer;
+}
+.checkbox-container {
+	width: 93%;
+	color: white;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 15px;
+}
+.ant-steps-item-title {
+	font-weight: 500;
+	color: rgba(255, 255, 255, 0.88) !important;
+}
+.ant-steps-item {
+	margin-top: 15px !important;
+}
+.ant-steps-horizontal {
+	padding-right: 20px !important;
+	padding-left: 20px !important;
+}
+.features-header-text {
+	color: rgba(255, 255, 255, 0.87);
+	font-weight: 400;
+	padding-right: 0px !important;
+}
+.ant-steps-icon {
+	color: rgba(0, 0, 0, 0.87) !important;
+}
+.error-message {
+	color: #c62828;
+	font-weight: 500;
+}
+.invalid-number {
+	color: #c62828;
+	text-align: left;
+	margin-left: 3px;
+	margin-bottom: 1px;
+	font-size: 13px;
+	font-weight: 400;
+}

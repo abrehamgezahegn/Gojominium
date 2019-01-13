@@ -1,0 +1,54 @@
+.detail-mainContainer {
+	width: 70%;
+	background-color: #263238;
+	display: flex;
+	flex-direction: column;
+	color: rgba(255, 255, 255, 0.84);
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	z-index: 1;
+}
+@media (max-width: 750px) {
+	.detail-mainContainer {
+		margin-top: 35vw;
+		width: 100%;
+	}
+}
+
+@media (max-width: 500px) {
+	.detail-mainContainer {
+		margin-top: 15vw;
+	}
+}
+@media (max-width: 450px) {
+	.detail-mainContainer {
+		margin-top: 11vw;
+	}
+}
+@media (max-width: 400px) {
+	.detail-mainContainer {
+		margin-top: 3vw;
+	}
+}
+@media (max-width: 350px) {
+	.detail-mainContainer {
+		margin-top: 0.5vw;
+	}
+}
+@media (max-width: 330px) {
+	.detail-mainContainer {
+		margin-top: 0px;
+	}
+}
+
+.detail-description {
+	font-family: helvetica !important;
+}
+.rent-sell-btn {
+	font-family: Verdana !important;
+}
+
+.d-additional-f {
+	font-family: helvetica !important;
+}

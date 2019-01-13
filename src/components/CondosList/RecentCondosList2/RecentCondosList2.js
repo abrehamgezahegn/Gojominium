@@ -13,7 +13,7 @@ class RecentCondosList extends Component {
 
 	componentDidMount() {
 		axios
-			.get("https://gojominium.herokuapp.com/get_recent_condos")
+			.get("https://gojominium-api.herokuapp.com/get_recent_condos")
 			.then(res => {
 				this.setState({ recentCondos: res.data.recentCondos });
 			})

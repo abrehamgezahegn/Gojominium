@@ -16,7 +16,7 @@ class CondoDetail extends Component {
 		window.scrollTo(0, 0);
 		axios
 			.get(
-				`https://gojominium.herokuapp.com/get_a_condo/${
+				`https://gojominium-api.herokuapp.com/get_a_condo/${
 					this.props.match.params.condoId
 				}`
 			)

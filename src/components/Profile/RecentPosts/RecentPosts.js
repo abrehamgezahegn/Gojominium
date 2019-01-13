@@ -20,7 +20,7 @@ class RecentPosts extends Component {
 		const token = localStorage.getItem("token");
 		const { userId } = jwt.decode(token);
 		axios
-			.get(`https://gojominium.herokuapp.com/get_condos/${userId}`)
+			.get(`https://gojominium-api.herokuapp.com/get_condos/${userId}`)
 			.then(res => {
 				this.setState({
 					userCondominiums: res.data.userCondos

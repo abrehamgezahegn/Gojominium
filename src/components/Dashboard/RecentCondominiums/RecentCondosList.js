@@ -12,7 +12,7 @@ class RecentCondosList extends Component {
 	}
 	componentWillMount() {
 		axios
-			.get("https://gojominium.herokuapp.com/get_recent_condos")
+			.get("https://gojominium-api.herokuapp.com/get_recent_condos")
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {

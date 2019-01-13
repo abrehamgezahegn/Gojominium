@@ -91,11 +91,6 @@ class CondoInfo extends Component {
 										: "Bedroom"
 								}
 								className="select-options type z-depth-1-half"
-								filterOption={(input, option) =>
-									option.props.children
-										.toLowerCase()
-										.indexOf(input.toLowerCase()) >= 0
-								}
 							>
 								{types.map(type => (
 									<Option value={type.value} key={type.value}>
@@ -117,11 +112,6 @@ class CondoInfo extends Component {
 										: "Floor"
 								}
 								className="select-options location z-depth-1-half"
-								filterOption={(input, option) =>
-									option.props.children
-										.toLowerCase()
-										.indexOf(input.toLowerCase()) >= 0
-								}
 							>
 								{floors.map(floor => (
 									<Option
@@ -146,11 +136,6 @@ class CondoInfo extends Component {
 								}
 								onChange={this.props.handleStatusChange}
 								className="select-options status z-depth-1-half"
-								filterOption={(input, option) =>
-									option.props.children
-										.toLowerCase()
-										.indexOf(input.toLowerCase()) >= 0
-								}
 							>
 								{statuses.map(status => (
 									<Option

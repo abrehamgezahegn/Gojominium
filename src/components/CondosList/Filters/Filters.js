@@ -130,11 +130,6 @@ class Filters extends Component {
 									optionFilterProp="children"
 									onChange={this.handleFTypeChange}
 									className="select-options type z-depth-1-half"
-									filterOption={(input, option) =>
-										option.props.children
-											.toLowerCase()
-											.indexOf(input.toLowerCase()) >= 0
-									}
 								>
 									{types.map(type => (
 										<Option
@@ -154,11 +149,6 @@ class Filters extends Component {
 									optionFilterProp="children"
 									onChange={this.handleFStatusChange}
 									className="select-options status z-depth-1-half"
-									filterOption={(input, option) =>
-										option.props.children
-											.toLowerCase()
-											.indexOf(input.toLowerCase()) >= 0
-									}
 								>
 									{statuses.map(status => (
 										<Option

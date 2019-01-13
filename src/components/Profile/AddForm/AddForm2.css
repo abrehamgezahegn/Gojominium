@@ -116,3 +116,13 @@
 	font-size: 13px;
 	font-weight: 400;
 }
+
+.okay-checkbox {
+	margin-left: 40px;
+}
+
+@media (max-width: 450px) {
+	.okay-checkbox {
+		margin-left: 20px;
+	}
+}

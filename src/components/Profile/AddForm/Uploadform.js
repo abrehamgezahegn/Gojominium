@@ -22,7 +22,6 @@ class Uploadfrom extends Component {
 			<div>
 				<Animation type="zoomInDown" duration="600ms">
 					<div className="upload-container">
-						<input type="file" />
 						<Upload {...this.props2}>
 							<Button className="upload-btn">
 								<Icon type="upload" /> Choose

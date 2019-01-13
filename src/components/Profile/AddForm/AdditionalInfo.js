@@ -26,7 +26,7 @@ class AdditionalInfo extends Component {
 										<div className="d-flex flex-row">
 											<input
 												type="checkbox"
-												className="mt-1 ml-5 mr-1"
+												className="mt-1 mr-1 okay-checkbox"
 												onChange={
 													this.props.toggleFeatured
 												}

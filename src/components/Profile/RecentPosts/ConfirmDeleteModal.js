@@ -28,7 +28,7 @@ class ConfirmDeleteModal extends Component {
                 {" "}
                 Delete{" "}
               </Button>{" "}
-              <Spin spinning={this.props.isLoading} className="ml-2" />
+              <Spin spinning={this.props.isLoading} className="ml-1 mr-2" />
               <Button
                 onClick={() => {
                   this.props.setModalVisible(false);

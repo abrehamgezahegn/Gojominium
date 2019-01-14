@@ -49,7 +49,10 @@ class RecentPosts extends Component {
 						return condo.id !== condoId;
 					}
 				);
-				this.setState({ userCondominiums: filteredCondos });
+				this.setState({
+					userCondominiums: filteredCondos,
+					isLoading: false
+				});
 				this.setModalVisible(false);
 			} else {
 				this.setState({ isLoading: false });

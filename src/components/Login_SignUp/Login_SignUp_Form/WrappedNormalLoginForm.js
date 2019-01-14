@@ -25,6 +25,7 @@ class NormalLoginForm extends Component {
 	handleChange = e => {
 		const value = e.target.value;
 		this.setState({ [e.target.name]: value });
+		this.setState({ isLoading: false });
 	};
 
 	handleSubmit = e => {

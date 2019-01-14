@@ -3,6 +3,7 @@ import CondoImages from "./ImageGallery/ImageGallery";
 import DetailInfo from "./DetailInfo/DetailInfo";
 import "./CondoDetail.css";
 import axios from "axios";
+import { Spin } from "antd";
 
 class CondoDetail extends Component {
 	constructor() {
@@ -31,12 +32,23 @@ class CondoDetail extends Component {
 	}
 
 	render() {
-		return (
-			<div className="condo-detail-page-main-container">
-				<CondoImages />
-				<DetailInfo condo={this.state.condo} />
-			</div>
-		);
+		if (!!this.state.condo) {
+			return (
+				<div
+					style={{ width: "100%" }}
+					className="d-flex justify-content-center"
+				>
+					<Spin spinning={!!this.state.condo} />{" "}
+				</div>
+			);
+		} else {
+			return (
+				<div className="condo-detail-page-main-container">
+					<CondoImages />
+					<DetailInfo condo={this.state.condo} />
+				</div>
+			);
+		}
 	}
 }
 

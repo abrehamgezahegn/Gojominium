@@ -7,21 +7,21 @@ import axios from "axios";
 const Option = Select.Option;
 
 const locations = [
-	{ value: "", label: "-" },
+	{ value: " ", label: "-" },
 	{ value: "Bole Arabsa", label: "Bole Arabsa" },
 	{ value: "Abado", label: "Abado" },
 	{ value: "Ayat 1", label: "Ayat 1" },
 	{ value: "Ayat 2", label: "Ayat 2" }
 ];
 const types = [
-	{ value: "", label: "-" },
+	{ value: " ", label: "-" },
 	{ value: "Studio", label: "Studio" },
 	{ value: "One bedroom", label: "One bedroom" },
 	{ value: "Two bedroom", label: "Two bedroom" },
 	{ value: "Three bedroom", label: "Three bedroom" }
 ];
 const statuses = [
-	{ value: "", label: "-" },
+	{ value: " ", label: "-" },
 	{ value: "for sell", label: "For sell" },
 	{ value: "for rent", label: "For rent" }
 ];

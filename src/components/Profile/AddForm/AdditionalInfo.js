@@ -115,7 +115,7 @@ class AdditionalInfo extends Component {
 							Update
 						</Button>
 					) : (
-					
+						<div>
 							<Button
 								type="primary"
 								className="done-btn step-btn"
@@ -124,7 +124,8 @@ class AdditionalInfo extends Component {
 							>
 								Done
 							</Button>
-						<Spin spinnig={this.props.isLoading}/>
+							<Spin spinnig={this.props.isLoading} />
+						</div>
 					)}
 
 					<Button

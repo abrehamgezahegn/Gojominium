@@ -48,7 +48,8 @@ class AddForm2 extends Component {
 			featured: false,
 			errorMessage: "",
 			isTyping: false,
-			pricePlaceH: "Price"
+			pricePlaceH: "Price",
+			isLoading: false
 		};
 	}
 
@@ -230,6 +231,8 @@ class AddForm2 extends Component {
 	};
 
 	submitForm = () => {
+		this.setState({ isLoading: true });
+
 		const condominium = this.setCondoObject();
 
 		if (!!this.props.editCondo) {
@@ -323,6 +326,7 @@ class AddForm2 extends Component {
 									submitForm={this.submitForm}
 									editCondo={this.props.editCondo}
 									toggleFeatured={this.toggleFeatured}
+									isLoading={this.state.isLoading}
 								/>
 							)}
 						</div>

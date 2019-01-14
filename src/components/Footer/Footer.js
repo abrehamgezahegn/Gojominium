@@ -8,7 +8,10 @@ import { Link } from "react-router-dom";
 const Footer = () => (
 	<div>
 		<div className="footer-main-container">
-			<div className="footer-logo"> logo </div>
+			<div className="footer-logo">
+				{" "}
+				<h1 style={{ color: " #bf360c" }}> ጎ </h1>{" "}
+			</div>
 			<div className=" footer-nav">
 				<h4 className="footer-header mb-3"> Gojominium </h4>
 				<Link to="/">

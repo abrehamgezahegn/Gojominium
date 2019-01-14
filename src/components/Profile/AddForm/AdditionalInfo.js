@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Checkbox, CheckboxGroup } from "react-checkbox-group";
-import { Button } from "antd";
+import { Button , Spin } from "antd";
 import { Animation } from "mdbreact";
 
 class AdditionalInfo extends Component {
@@ -115,6 +115,7 @@ class AdditionalInfo extends Component {
 							Update
 						</Button>
 					) : (
+					<Spin spinnig={this.props.isLoading}>
 						<Button
 							type="primary"
 							className="done-btn step-btn"
@@ -122,6 +123,7 @@ class AdditionalInfo extends Component {
 						>
 							Done
 						</Button>
+						<Spin>
 					)}
 
 					<Button

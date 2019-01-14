@@ -46,7 +46,7 @@ class NavbarFeatures extends Component {
           scrollingNavbarOffset={20}
         >
           <NavbarBrand>
-            <h2> ጎ </h2>
+            <h1 className="logo-letter"> ጎ </h1>
           </NavbarBrand>
           {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
           <Collapse isOpen={this.state.collapse} navbar>

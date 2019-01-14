@@ -130,7 +130,7 @@ class NormalLoginForm extends Component {
 						<a className="login-form-forgot" href="">
 							Forgot password
 						</a>
-						<Spin spnning={this.state.isLoading}>
+						<Spin spinning={this.state.isLoading}>
 							<Button
 								type="primary"
 								htmlType="submit"

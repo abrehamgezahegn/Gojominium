@@ -12,11 +12,13 @@ class CondosList extends Component {
 		this.state = {
 			allCondominiums: [],
 			offsetAll: 0,
-			isDisplayingFiltered: false
+			isDisplayingFiltered: false,
+			isLoading: false
 		};
 	}
 	componentWillMount() {
 		window.scrollTo(0, 0);
+		this.setState({ isLoading: true });
 		axios
 			.get(
 				`https://gojominium-api.herokuapp.com/get_all_condos/${
@@ -28,7 +30,8 @@ class CondosList extends Component {
 					if (res.data.message !== "something went wrong") {
 						this.setState({
 							allCondominiums: res.data.allCondominiums,
-							offsetAll: this.state.offsetAll + 1
+							offsetAll: this.state.offsetAll + 1,
+							isLoading: false
 						});
 					}
 				}
@@ -39,7 +42,7 @@ class CondosList extends Component {
 	handleGetFilteredCondos = filters => {
 		const { location, type, sellorrent, minPrice, maxPrice } = filters;
 
-		this.setState({ isDisplayingFiltered: true });
+		this.setState({ isDisplayingFiltered: true, isLoading: true });
 		axios
 			.get(
 				`https://gojominium-api.herokuapp.com/get_filtered_condos/${location}/${type}/${sellorrent}/${minPrice}/${maxPrice}`
@@ -48,7 +51,8 @@ class CondosList extends Component {
 				if (res) {
 					if (res.data.message !== "something went wrong") {
 						this.setState({
-							allCondominiums: res.data.filteredCondos
+							allCondominiums: res.data.filteredCondos,
+							isLoading: false
 						});
 					}
 				}
@@ -56,19 +60,25 @@ class CondosList extends Component {
 					offsetFiltered: this.state.offsetFiltered + 1
 				});
 			})
+			.then(() => {
+				if (this.state.allCondominiums.length === 0) {
+					this.setState({ isLoading: false });
+				}
+			})
 			.catch(err => console.log(err));
 	};
 
 	handleClearFilters = () => {
 		this.setState({ isDisplayingFiltered: false, offsetAll: 0 });
-
+		this.setState({ isLoading: true });
 		axios
 			.get(`https://gojominium-api.herokuapp.com/get_all_condos/${0}`)
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {
 						this.setState({
-							allCondominiums: res.data.allCondominiums
+							allCondominiums: res.data.allCondominiums,
+							isLoading: false
 						});
 					}
 				}
@@ -77,6 +87,7 @@ class CondosList extends Component {
 	};
 
 	handleLoadMore = () => {
+		this.setState({ isLoading: true });
 		axios
 			.get(
 				`https://gojominium-api.herokuapp.com/get_all_condos/${
@@ -91,7 +102,8 @@ class CondosList extends Component {
 						}
 						this.setState({
 							allCondominiums: res.data.allCondominiums,
-							offsetAll: this.state.offsetAll + 1
+							offsetAll: this.state.offsetAll + 1,
+							isLoading: false
 						});
 						window.scrollTo(0, 140);
 					}
@@ -101,6 +113,7 @@ class CondosList extends Component {
 	};
 
 	handleLoadPrev = () => {
+		this.setState({ isLoading: true });
 		axios
 			.get(
 				`https://gojominium-api.herokuapp.com/get_all_condos/${this
@@ -114,7 +127,8 @@ class CondosList extends Component {
 						}
 						this.setState({
 							allCondominiums: res.data.allCondominiums,
-							offsetAll: this.state.offsetAll - 1
+							offsetAll: this.state.offsetAll - 1,
+							isLoading: false
 						});
 						window.scrollTo(0, 140);
 					}
@@ -172,6 +186,7 @@ class CondosList extends Component {
 						handleLoadMore={this.handleLoadMore}
 						offsetAll={this.state.offsetAll}
 						isDisplayingFiltered={this.state.isDisplayingFiltered}
+						isLoading={this.state.isLoading}
 					/>
 				</div>
 			</div>

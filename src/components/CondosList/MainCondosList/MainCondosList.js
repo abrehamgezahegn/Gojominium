@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import MainCondoCard from "./MainCondoCard/MainCondoCard";
 import "./mainList.css";
-import { Button } from "antd";
+import { Button, Spin } from "antd";
 
 class MainCondosList extends Component {
 	render() {
 		return (
 			<div style={{ width: "100%" }}>
+				<Spin spinning={this.props.isLoading} />
 				<div className="main-list-container">
 					{this.props.allCondominiums.map(condo => (
 						<MainCondoCard key={condo.id} condo={condo} />

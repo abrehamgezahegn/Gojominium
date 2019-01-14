@@ -22,6 +22,12 @@
 	padding-top: 0px !important;
 }
 
+@media (max-width: 500px) {
+	.carousel-img-container {
+		height: 45vw !important;
+	}
+}
+
 .carousel-img {
 	height: 100% !important;
 	width: 100% !important;

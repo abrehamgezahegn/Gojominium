@@ -132,10 +132,10 @@ class AddForm2 extends Component {
 	};
 	handleDescriptionChange = e => {
 		const description = e.target.value;
-		this.setState({ description });
+		this.setState({ description, isLoading: false });
 	};
 	handleCheckChange = addFeatures => {
-		this.setState({ addFeatures });
+		this.setState({ addFeatures, isLoading: false });
 	};
 
 	handelPriceChange = e => {
@@ -168,7 +168,7 @@ class AddForm2 extends Component {
 	};
 
 	toggleFeatured = () => {
-		this.setState({ featured: !this.state.featured });
+		this.setState({ featured: !this.state.featured, isLoading: false });
 	};
 
 	//******************************************************//
@@ -202,7 +202,7 @@ class AddForm2 extends Component {
 
 	prev = () => {
 		const current = this.state.current - 1;
-		this.setState({ current });
+		this.setState({ current, isLoading: false });
 	};
 	//***************************************************//
 

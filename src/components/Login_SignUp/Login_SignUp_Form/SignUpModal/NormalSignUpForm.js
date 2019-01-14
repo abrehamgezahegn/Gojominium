@@ -30,6 +30,7 @@ class NormalSignUpForm extends Component {
 	}
 
 	handleChange = e => {
+		this.setState({ isLoading: false });
 		const value = e.target.value;
 		if (e.target.name === "password") {
 			const { errors } = owasp.test(value);
@@ -50,8 +51,10 @@ class NormalSignUpForm extends Component {
 			}
 			this.setState({ isLoading: true });
 			if (this.state.password !== this.state.confirmPassword) {
-				this.setState({ errorMessage: "Passwords do not match" });
-				this.setState({ isLoading: false });
+				this.setState({
+					errorMessage: "Passwords do not match",
+					isLoading: false
+				});
 			} else if (this.state.passErrors.length === 0) {
 				this.setState({ isLoading: true });
 				axios({

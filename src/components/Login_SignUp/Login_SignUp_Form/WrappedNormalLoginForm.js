@@ -12,7 +12,8 @@ class NormalLoginForm extends Component {
 			modal2Visible: false,
 			email: "",
 			password: "",
-			errorMessage: ""
+			errorMessage: "",
+			isLoading: false
 		};
 	}
 
@@ -28,10 +29,12 @@ class NormalLoginForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
+
 		this.props.form.validateFields((err, values) => {
 			if (!err) {
 				// console.log("Received values of form: ", values);
 			}
+			this.setState({ isLoading: true });
 			axios({
 				method: "post",
 				url: "https://gojominium-api.herokuapp.com/signin",
@@ -53,7 +56,8 @@ class NormalLoginForm extends Component {
 						this.props.setModalVisible(false);
 					} else if (res.data === "wrong credentials") {
 						this.setState({
-							errorMessage: "Wrong email or password"
+							errorMessage: "Wrong email or password",
+							isLoading: false
 						});
 					}
 				}
@@ -126,13 +130,15 @@ class NormalLoginForm extends Component {
 						<a className="login-form-forgot" href="">
 							Forgot password
 						</a>
-						<Button
-							type="primary"
-							htmlType="submit"
-							className="login-form-button"
-						>
-							Log in
-						</Button>
+						<Spin spnning={this.state.isLoading}>
+							<Button
+								type="primary"
+								htmlType="submit"
+								className="login-form-button"
+							>
+								Log in
+							</Button>
+						</Spin>
 						Or{" "}
 						<Button onClick={() => this.setModal2Visible(true)}>
 							{" "}

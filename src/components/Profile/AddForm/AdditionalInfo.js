@@ -115,15 +115,16 @@ class AdditionalInfo extends Component {
 							Update
 						</Button>
 					) : (
-						<Spin spinnig={this.props.isLoading}>
+					
 							<Button
 								type="primary"
 								className="done-btn step-btn"
 								onClick={this.props.submitForm}
+								disabled={this.props.isLoading}
 							>
 								Done
 							</Button>
-						</Spin>
+						<Spin spinnig={this.props.isLoading}/>
 					)}
 
 					<Button

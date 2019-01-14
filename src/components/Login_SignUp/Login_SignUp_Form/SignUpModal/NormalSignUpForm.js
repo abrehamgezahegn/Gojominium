@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Icon, Input, Button } from "antd";
+import { Form, Icon, Input, Button, Spin } from "antd";
 import axios from "axios";
 import uuid from "uuid";
 import owasp from "owasp-password-strength-test";
@@ -24,7 +24,8 @@ class NormalSignUpForm extends Component {
 			password: "",
 			confirmPassword: "",
 			passErrors: [],
-			errorMessage: ""
+			errorMessage: "",
+			isLoading: false
 		};
 	}
 
@@ -47,9 +48,12 @@ class NormalSignUpForm extends Component {
 			if (!err) {
 				// console.log("Received values of form: ", values);
 			}
+			this.setState({ isLoading: true });
 			if (this.state.password !== this.state.confirmPassword) {
 				this.setState({ errorMessage: "Passwords do not match" });
+				this.setState({ isLoading: false });
 			} else if (this.state.passErrors.length === 0) {
+				this.setState({ isLoading: true });
 				axios({
 					method: "post",
 					url: "https://gojominium-api.herokuapp.com/register",
@@ -69,11 +73,13 @@ class NormalSignUpForm extends Component {
 							res.data.error.constraint === "users_email_key"
 						) {
 							this.setState({
-								errorMessage: "Email already exists"
+								errorMessage: "Email already exists",
+								isLoading: false
 							});
 						}
 					} catch (err) {
 						console.log(err);
+						this.setState({ isLoading: false });
 					}
 				});
 			}
@@ -166,13 +172,15 @@ class NormalSignUpForm extends Component {
 						)}
 					</FormItem>
 					<FormItem>
-						<Button
-							type="primary"
-							htmlType="submit"
-							className="login-form-button"
-						>
-							Sign up
-						</Button>
+						<Spin spinning={this.state.isLoading}>
+							<Button
+								type="primary"
+								htmlType="submit"
+								className="login-form-button"
+							>
+								Sign up
+							</Button>
+						</Spin>
 					</FormItem>
 				</Form>
 			</div>

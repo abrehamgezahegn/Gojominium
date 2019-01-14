@@ -21,20 +21,29 @@ class FeaturedCondosList extends Component {
 	}
 
 	render() {
-		return (
-			<div className="featured2-main-container shadow-3">
-				{" "}
-				<h6 className="featured2-header-text">
+		if (this.state.featuredCondos.length < 10) {
+			return (
+				<Spin
+					size="large"
+					spinning={this.state.featuredCondos.length < 10}
+				/>
+			);
+		} else {
+			return (
+				<div className="featured2-main-container shadow-3">
 					{" "}
-					Featured condominuims{" "}
-				</h6>
-				<div className="featured2-condos-container">
-					{this.state.featuredCondos.map(condo => (
-						<FeaturedCard key={condo.id} condo={condo} />
-					))}
+					<h6 className="featured2-header-text">
+						{" "}
+						Featured condominuims{" "}
+					</h6>
+					<div className="featured2-condos-container">
+						{this.state.featuredCondos.map(condo => (
+							<FeaturedCard key={condo.id} condo={condo} />
+						))}
+					</div>
 				</div>
-			</div>
-		);
+			);
+		}
 	}
 }
 

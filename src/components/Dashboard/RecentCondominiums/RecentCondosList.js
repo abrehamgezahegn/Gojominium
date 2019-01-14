@@ -24,14 +24,19 @@ class RecentCondosList extends Component {
 	}
 
 	render() {
+		const { recentCondos } = this.state;
 		return (
 			<div className="featured-main-container shadow-3">
 				{" "}
 				<h5 className="featured-header-text"> Recent Condominuims</h5>
 				<div className="recent-condos-container">
-					{this.state.recentCondos.map(condo => (
-						<DashCondoCard key={condo.id} condo={condo} />
-					))}
+					{recentCondos.length < 10 && (
+						<Spin spinnig={recentCondos.length < 10} />
+					)}
+					{recentCondos.length === 10 &&
+						recentCondos.map(condo => (
+							<DashCondoCard key={condo.id} condo={condo} />
+						))}
 				</div>
 			</div>
 		);

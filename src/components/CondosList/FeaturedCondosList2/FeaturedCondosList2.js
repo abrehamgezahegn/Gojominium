@@ -24,10 +24,12 @@ class FeaturedCondosList extends Component {
 	render() {
 		if (this.state.featuredCondos.length < 10) {
 			return (
-				<Spin
-					size="large"
-					spinning={this.state.featuredCondos.length < 10}
-				/>
+				<div
+					style={{ hieght: "400px" }}
+					className="d-flex align-items-center"
+				>
+					<Spin spinning={this.state.featuredCondos.length < 10} />
+				</div>
 			);
 		} else {
 			return (

@@ -10,7 +10,7 @@ import {
 } from "mdbreact";
 import { Fa } from "mdbreact";
 import "./Nav.css";
-import gojominium from "./logo/gojominium.PNG";
+import gojominium from "./logo/gojominium logo.PNG";
 import LoginModal from "../Login_SignUp/LoginModal";
 import { AuthConsumer } from "../../contexts/MyAuthProvider";
 

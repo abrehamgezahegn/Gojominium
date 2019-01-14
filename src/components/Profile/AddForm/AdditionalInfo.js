@@ -124,7 +124,7 @@ class AdditionalInfo extends Component {
 							>
 								Done
 							</Button>
-							<Spin spinnig={this.props.isLoading} />
+							<Spin spinning={this.props.isLoading} />
 						</div>
 					)}
 

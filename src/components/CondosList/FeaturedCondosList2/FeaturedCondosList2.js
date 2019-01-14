@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import FeaturedCard from "./FeaturedCard";
 import "./featured2.css";
 import axios from "axios";
+import { Spin } from "antd";
 
 class FeaturedCondosList extends Component {
 	constructor() {

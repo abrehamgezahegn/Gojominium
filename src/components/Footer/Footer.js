@@ -10,7 +10,7 @@ const Footer = () => (
 		<div className="footer-main-container">
 			<div className="footer-logo">
 				{" "}
-				<p> ጎ </p>{" "}
+				<p className="footer-logo"> ጎ </p>{" "}
 			</div>
 			<div className=" footer-nav">
 				<h4 className="footer-header mb-3"> Gojominium </h4>

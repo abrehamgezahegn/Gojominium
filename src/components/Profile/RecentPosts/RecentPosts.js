@@ -12,7 +12,8 @@ class RecentPosts extends Component {
 			userCondominiums: [],
 			userId: "",
 			isModalVisible: false,
-			condoId: ""
+			condoId: "",
+			isLoading: false
 		};
 	}
 
@@ -34,6 +35,7 @@ class RecentPosts extends Component {
 	};
 
 	handleDelete = condoId => {
+		this.setState({ isLoading: true });
 		axios({
 			method: "delete",
 			url: "https://gojominium-api.herokuapp.com/delete_condo",
@@ -49,6 +51,8 @@ class RecentPosts extends Component {
 				);
 				this.setState({ userCondominiums: filteredCondos });
 				this.setModalVisible(false);
+			} else {
+				this.setState({ isLoading: false });
 			}
 		});
 	};
@@ -99,6 +103,7 @@ class RecentPosts extends Component {
 					isModalVisible={this.state.isModalVisible}
 					handleDelete={this.handleDelete}
 					condoId={this.state.condoId}
+					isLoading={this.state.isLoading}
 				/>
 			</div>
 		);

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Button } from "antd";
+import { Modal, Button, Spin } from "antd";
 import "../../Login_SignUp/Login_Modal.css";
 
 class ConfirmDeleteModal extends Component {
@@ -16,18 +16,20 @@ class ConfirmDeleteModal extends Component {
           <p className="text-center mt-2 mb-2"> Are you sure? </p>
           {
             <div className="text-center mb-3">
-              <Button
-                onClick={() => {
-                  this.props.handleDelete(this.props.condoId);
-                }}
-                style={{
-                  backgroundColor: "#c62828",
-                  color: "rgba(255,255,255,0.8)"
-                }}
-              >
-                {" "}
-                Delete{" "}
-              </Button>{" "}
+              <Spin spinning={this.props.isLoading}>
+                <Button
+                  onClick={() => {
+                    this.props.handleDelete(this.props.condoId);
+                  }}
+                  style={{
+                    backgroundColor: "#c62828",
+                    color: "rgba(255,255,255,0.8)"
+                  }}
+                >
+                  {" "}
+                  Delete{" "}
+                </Button>{" "}
+              </Spin>
               <Button
                 onClick={() => {
                   this.props.setModalVisible(false);

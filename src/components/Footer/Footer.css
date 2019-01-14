@@ -46,6 +46,12 @@
 	color: #d4a538;
 }
 
+.footer-logo {
+	font-size: 40px;
+	font-weight: 500px;
+	color: #d4a538;
+}
+
 @media (max-width: 700px) {
 	.footer-logo {
 		display: none;

@@ -17,6 +17,7 @@ class ConfirmDeleteModal extends Component {
           {
             <div className="text-center mb-3">
               <Button
+                disabled={this.props.isLoading}
                 onClick={() => {
                   this.props.handleDelete(this.props.condoId);
                 }}

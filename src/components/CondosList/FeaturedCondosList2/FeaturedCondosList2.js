@@ -28,7 +28,7 @@ class FeaturedCondosList extends Component {
 					style={{ hieght: "400px" }}
 					className="d-flex align-items-center"
 				>
-					<Spin spinning={this.state.featuredCondos.length < 10} />
+					<Spin spinning={this.state.featuredCondos.length < 2} />
 				</div>
 			);
 		} else {

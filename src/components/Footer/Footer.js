@@ -11,7 +11,7 @@ const Footer = () => (
 			<div className="footer-logo">
 				{" "}
 				<div className="d-flex flex-row">
-					<p className="footer-logo"> ጎ </p>{" "}
+					<p className="footer-logo-text"> ጎጆ </p>{" "}
 					<p className="footer-logo-minium"> Minium </p>
 				</div>
 			</div>

@@ -107,13 +107,21 @@ class AdditionalInfo extends Component {
 				</Animation>
 				<div className="steps-action">
 					{!!this.props.editCondo ? (
-						<Button
-							type="primary"
-							className="done-btn step-btn"
-							onClick={this.props.submitForm}
-						>
-							Update
-						</Button>
+						<div>
+							<Button
+								type="primary"
+								className="done-btn step-btn"
+								onClick={this.props.submitForm}
+								disabled={this.props.isLoading}
+							>
+								Update
+							</Button>
+							<Spin
+								spinning={this.props.isLoading}
+								size="small"
+								className="ml-2 mr-2"
+							/>
+						</div>
 					) : (
 						<div>
 							<Button
@@ -127,7 +135,7 @@ class AdditionalInfo extends Component {
 							<Spin
 								spinning={this.props.isLoading}
 								size="small"
-								className="ml-2"
+								className="ml-2 mr-2"
 							/>
 						</div>
 					)}

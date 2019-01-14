@@ -22,7 +22,7 @@ class FeaturedCondosList extends Component {
 	}
 
 	render() {
-		if (this.state.featuredCondos.length < 10) {
+		if (this.state.featuredCondos.length < 2) {
 			return (
 				<div
 					style={{ hieght: "400px" }}

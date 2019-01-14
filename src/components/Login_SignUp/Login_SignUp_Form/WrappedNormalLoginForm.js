@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Icon, Input, Button, Checkbox } from "antd";
+import { Form, Icon, Input, Button, Checkbox, Spin } from "antd";
 import SignUpModal from "./SignUpModal/SignUpModal";
 import axios from "axios";
 

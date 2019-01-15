@@ -22,6 +22,7 @@ class FeaturedCondosList extends Component {
 	}
 
 	render() {
+		const { featuredCondos } = this.state;
 		return (
 			<div className="featured2-main-container shadow-3">
 				{" "}
@@ -35,7 +36,7 @@ class FeaturedCondosList extends Component {
 							className="d-flex justify-content-center"
 							style={{ width: "100%" }}
 						>
-							<Spin spinning={recentCondos.length < 5} />
+							<Spin spinning={featuredCondos.length < 5} />
 						</div>
 					)}
 

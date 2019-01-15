@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./featuredCondos.css";
 import FeaturedDashCard from "./FeaturedDashCard";
 import axios from "axios";
+import { Spin } from "antd";
 
 class FeaturedCondosList extends Component {
 	constructor() {
@@ -35,7 +36,7 @@ class FeaturedCondosList extends Component {
 							className="d-flex justify-content-center"
 							style={{ width: "100%" }}
 						>
-							<Spin spinning={recentCondos.length < 5} />
+							<Spin spinning={featuredCondos.length < 5} />
 						</div>
 					)}
 					{featuredCondos.length > 6 &&

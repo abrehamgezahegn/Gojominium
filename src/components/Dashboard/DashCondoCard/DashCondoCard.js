@@ -13,7 +13,7 @@ class DashCondoCard extends Component {
 			<div
 				style={{
 					width: "200px",
-					marginRight: "20px",
+					marginRight: "58px",
 					marginLeft: "10px"
 				}}
 			>

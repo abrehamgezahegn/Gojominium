@@ -34,7 +34,16 @@
 }
 
 .carousel-btn {
-	background-color: rgba();
+	background-color: rgba(242, 176, 21, 0.7) !important;
+	font-size: 20px !important;
+	color: rgba(0, 0, 0, 0.7) !important;
+	font-weight: 700 !important;
+	font-family: Helvetica Courier New;
+	cursor: pointer !important;
+}
 
-	font-size: 30px;
+@media (max-width: 600px) {
+	.carousel-btn {
+		font-size: 15px !important;
+	}
 }

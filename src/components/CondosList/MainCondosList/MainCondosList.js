@@ -45,6 +45,22 @@ class MainCondosList extends Component {
 						</h6>
 					)}
 
+				{!!this.props.message && (
+					<h6
+						style={{
+							color: "rgba(0,0,0,0.8)",
+							fontWeight: "600",
+							fontSize: "20px",
+							marginBottom: "60px",
+							width: "100%"
+						}}
+						className="text-center"
+					>
+						{" "}
+						{this.props.message}
+					</h6>
+				)}
+
 				{!this.props.isDisplayingFiltered &&
 					!this.props.isLoading && (
 						<div className="text-center" style={{ width: "100%" }}>

@@ -13,7 +13,8 @@ class CondosList extends Component {
 			allCondominiums: [],
 			offsetAll: 0,
 			isDisplayingFiltered: false,
-			isLoading: false
+			isLoading: false,
+			message: ""
 		};
 	}
 	componentWillMount() {
@@ -36,7 +37,7 @@ class CondosList extends Component {
 					}
 				}
 			})
-			.catch(err => console.log(err));
+			.catch(err => console.log);
 	}
 
 	handleGetFilteredCondos = filters => {
@@ -69,7 +70,7 @@ class CondosList extends Component {
 	};
 
 	handleClearFilters = () => {
-		this.setState({ isDisplayingFiltered: false, offsetAll: 0 });
+		this.setState({ isDisplayingFiltered: false, offsetAll: 1 });
 		this.setState({ isLoading: true });
 		axios
 			.get(`https://gojominium-api.herokuapp.com/get_all_condos/${0}`)
@@ -98,7 +99,7 @@ class CondosList extends Component {
 				if (res) {
 					if (res.data.message !== "something went wrong") {
 						if (res.data.allCondominiums.length === 0) {
-							return;
+							this.setState({ isLoading: false });
 						}
 						this.setState({
 							allCondominiums: res.data.allCondominiums,
@@ -109,7 +110,13 @@ class CondosList extends Component {
 					}
 				}
 			})
-			.catch(err => console.log(err));
+			.catch(err => {
+				this.setState({
+					isLoading: false,
+					Message: "something went worng please refresh the page!!"
+				});
+				console.log(err);
+			});
 	};
 
 	handleLoadPrev = () => {
@@ -138,7 +145,6 @@ class CondosList extends Component {
 	};
 
 	render() {
-		console.log(this.state);
 		return (
 			<div>
 				{" "}
@@ -172,6 +178,7 @@ class CondosList extends Component {
 						offsetAll={this.state.offsetAll}
 						isDisplayingFiltered={this.state.isDisplayingFiltered}
 						isLoading={this.state.isLoading}
+						message={this.state.message}
 					/>
 				</div>
 			</div>

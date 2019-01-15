@@ -21,6 +21,7 @@ class FeaturedCondosList extends Component {
 	}
 
 	render() {
+		const { featuredCondos } = this.state;
 		return (
 			<div className="featured-main-container shadow-3">
 				{" "}
@@ -29,9 +30,18 @@ class FeaturedCondosList extends Component {
 					Featured condominuims{" "}
 				</h5>
 				<div className="recent-condos-container">
-					{this.state.featuredCondos.map(condo => (
-						<FeaturedDashCard key={condo.id} condo={condo} />
-					))}
+					{featuredCondos.length < 5 && (
+						<div
+							className="d-flex justify-content-center"
+							style={{ width: "100%" }}
+						>
+							<Spin spinning={recentCondos.length < 5} />
+						</div>
+					)}
+					{featuredCondos.length > 6 &&
+						featuredCondos.map(condo => (
+							<FeaturedDashCard key={condo.id} condo={condo} />
+						))}
 				</div>
 			</div>
 		);

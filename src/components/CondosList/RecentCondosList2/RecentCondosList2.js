@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import RecentListCondoCard from "./RecentListCondoCard";
 import "../FeaturedCondosList2/featured2.css";
 import axios from "axios";
+import { Spin } from "antd";
 
 class RecentCondosList extends Component {
 	constructor() {
@@ -26,9 +27,18 @@ class RecentCondosList extends Component {
 				{" "}
 				<h6 className="featured2-header-text"> Recent Condominiums</h6>
 				<div className="featured2-condos-container">
-					{this.state.recentCondos.map(condo => (
-						<RecentListCondoCard key={condo.id} condo={condo} />
-					))}
+					{recentCondos.length < 5 && (
+						<div
+							className="d-flex justify-content-center"
+							style={{ width: "100%" }}
+						>
+							<Spin spinning={recentCondos.length < 5} />
+						</div>
+					)}
+					{recentCondos.length > 5 &&
+						recentCondos.map(condo => (
+							<RecentListCondoCard key={condo.id} condo={condo} />
+						))}
 				</div>
 			</div>
 		);

@@ -9,6 +9,7 @@ import {
   Container
 } from "mdbreact";
 import "./carousel.css";
+import { Button } from "antd";
 
 class CarouselPage extends Component {
   render() {
@@ -32,7 +33,7 @@ class CarouselPage extends Component {
                 <Mask overlay="black-light" />
               </View>
               <CarouselCaption>
-                <h3 className="h3-responsive">Sell a condo</h3>
+                <Button className="carousel-btn"> Sell a condo</Button>
               </CarouselCaption>
             </CarouselItem>
             <CarouselItem itemId="2">
@@ -45,7 +46,7 @@ class CarouselPage extends Component {
                 <Mask overlay="black-strong" />
               </View>
               <CarouselCaption>
-                <h3 className="h3-responsive">Buy a condo</h3>
+                <Button className="carousel-btn">Buy a condo </Button>
               </CarouselCaption>
             </CarouselItem>
             <CarouselItem itemId="3">
@@ -58,7 +59,7 @@ class CarouselPage extends Component {
                 <Mask overlay="black-slight" />
               </View>
               <CarouselCaption>
-                <h3 className="h3-responsive"> Search for a condo </h3>
+                <Button className="carousel-btn"> Search for a condo </Button>
               </CarouselCaption>
             </CarouselItem>
           </CarouselInner>

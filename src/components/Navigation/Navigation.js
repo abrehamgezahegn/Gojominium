@@ -10,7 +10,6 @@ import {
 } from "mdbreact";
 import { Fa } from "mdbreact";
 import "./Nav.css";
-import gojominium from "./logo/gojominium logo.PNG";
 import LoginModal from "../Login_SignUp/LoginModal";
 import { AuthConsumer } from "../../contexts/MyAuthProvider";
 
@@ -46,7 +45,7 @@ class NavbarFeatures extends Component {
           scrollingNavbarOffset={20}
         >
           <NavbarBrand>
-            <h1 className="logo-letter"> ጎ </h1>
+            <h1 className="logo-letter"> ጎጆ </h1>
           </NavbarBrand>
           {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
           <Collapse isOpen={this.state.collapse} navbar>

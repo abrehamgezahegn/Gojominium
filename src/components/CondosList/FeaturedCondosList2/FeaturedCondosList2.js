@@ -22,31 +22,30 @@ class FeaturedCondosList extends Component {
 	}
 
 	render() {
-		if (this.state.featuredCondos.length < 2) {
-			return (
-				<div
-					style={{ hieght: "400px" }}
-					className="d-flex align-items-center"
-				>
-					<Spin spinning={this.state.featuredCondos.length < 2} />
-				</div>
-			);
-		} else {
-			return (
-				<div className="featured2-main-container shadow-3">
+		return (
+			<div className="featured2-main-container shadow-3">
+				{" "}
+				<h6 className="featured2-header-text">
 					{" "}
-					<h6 className="featured2-header-text">
-						{" "}
-						Featured condominuims{" "}
-					</h6>
-					<div className="featured2-condos-container">
-						{this.state.featuredCondos.map(condo => (
+					Featured condominuims{" "}
+				</h6>
+				<div className="featured2-condos-container">
+					{featuredCondos.length < 5 && (
+						<div
+							className="d-flex justify-content-center"
+							style={{ width: "100%" }}
+						>
+							<Spin spinning={recentCondos.length < 5} />
+						</div>
+					)}
+
+					{featuredCondos.length > 6 &&
+						featuredCondos.map(condo => (
 							<FeaturedCard key={condo.id} condo={condo} />
 						))}
-					</div>
 				</div>
-			);
-		}
+			</div>
+		);
 	}
 }
 

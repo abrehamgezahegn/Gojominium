@@ -90,7 +90,7 @@ class RecentPosts extends Component {
 						{" "}
 						<h5
 							style={{
-								fontWieght: 600,
+								fontWeight: "600",
 								color: "rgba(0,0,0,0.7)",
 								marginBottom: "300px"
 							}}

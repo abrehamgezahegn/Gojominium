@@ -283,54 +283,52 @@ class AddForm2 extends Component {
 							<Step key={item.title} title={item.title} />
 						))}
 					</Steps>
-					<Animation type="fadeInDown">
-						<div className="steps-content">
-							{current === 0 && (
-								<Uploadform
-									current={current}
-									steps={steps}
-									nextImage={this.nextImage}
-									prev={this.prev}
-								/>
-							)}
-							{current === 1 && (
-								<CondoInfo
-									current={current}
-									steps={steps}
-									nextMain={this.nextMain}
-									prev={this.prev}
-									handleLocChange={this.handleLocChange}
-									handleTypeChange={this.handleTypeChange}
-									handleStatusChange={this.handleStatusChange}
-									handleFloorChange={this.handleFloorChange}
-									handlePhoneChange={this.handlePhoneChange}
-									handelPriceChange={this.handelPriceChange}
-									state={this.state}
-									errorMessage={this.state.errorMessage}
-									isTyping={this.state.isTyping}
-									pricePlaceH={this.state.pricePlaceH}
-									handleAreaChange={this.handleAreaChange}
-								/>
-							)}
-							{current === 2 && (
-								<AdditionalInfo
-									current={current}
-									steps={steps}
-									next={this.nextImage}
-									prev={this.prev}
-									handleDescriptionChange={
-										this.handleDescriptionChange
-									}
-									handleCheckChange={this.handleCheckChange}
-									state={this.state}
-									submitForm={this.submitForm}
-									editCondo={this.props.editCondo}
-									toggleFeatured={this.toggleFeatured}
-									isLoading={this.state.isLoading}
-								/>
-							)}
-						</div>
-					</Animation>
+					<div className="steps-content">
+						{current === 0 && (
+							<Uploadform
+								current={current}
+								steps={steps}
+								nextImage={this.nextImage}
+								prev={this.prev}
+							/>
+						)}
+						{current === 1 && (
+							<CondoInfo
+								current={current}
+								steps={steps}
+								nextMain={this.nextMain}
+								prev={this.prev}
+								handleLocChange={this.handleLocChange}
+								handleTypeChange={this.handleTypeChange}
+								handleStatusChange={this.handleStatusChange}
+								handleFloorChange={this.handleFloorChange}
+								handlePhoneChange={this.handlePhoneChange}
+								handelPriceChange={this.handelPriceChange}
+								state={this.state}
+								errorMessage={this.state.errorMessage}
+								isTyping={this.state.isTyping}
+								pricePlaceH={this.state.pricePlaceH}
+								handleAreaChange={this.handleAreaChange}
+							/>
+						)}
+						{current === 2 && (
+							<AdditionalInfo
+								current={current}
+								steps={steps}
+								next={this.nextImage}
+								prev={this.prev}
+								handleDescriptionChange={
+									this.handleDescriptionChange
+								}
+								handleCheckChange={this.handleCheckChange}
+								state={this.state}
+								submitForm={this.submitForm}
+								editCondo={this.props.editCondo}
+								toggleFeatured={this.toggleFeatured}
+								isLoading={this.state.isLoading}
+							/>
+						)}
+					</div>
 				</form>
 			</div>
 		);

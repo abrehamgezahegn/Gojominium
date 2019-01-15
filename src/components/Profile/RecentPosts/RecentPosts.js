@@ -4,6 +4,7 @@ import CondoCard from "./CondoCard";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import ConfirmDeleteModal from "./ConfirmDeleteModal";
+import { Spin } from "antd";
 
 class RecentPosts extends Component {
 	constructor() {
@@ -20,12 +21,19 @@ class RecentPosts extends Component {
 	componentWillMount() {
 		const token = localStorage.getItem("token");
 		const { userId } = jwt.decode(token);
+		this.setState({ isLoading: true });
 		axios
 			.get(`https://gojominium-api.herokuapp.com/get_condos/${userId}`)
 			.then(res => {
 				this.setState({
-					userCondominiums: res.data.userCondos
+					userCondominiums: res.data.userCondos,
+					isLoading: false
 				});
+			})
+			.then(() => {
+				if (this.state.userCondominiums.length === 0) {
+					this.setState({ isLoading: false });
+				}
 			})
 			.then(err => console.log(err));
 	}
@@ -71,7 +79,13 @@ class RecentPosts extends Component {
 						</p>
 					</div>
 				</div>
-				{this.state.userCondominiums.length === 0 ? (
+				<div className="text-center mt-3 mb-5">
+					{this.state.isLoading && (
+						<Spin spinning={this.state.isLoading} />
+					)}
+				</div>
+				{this.state.userCondominiums.length === 0 &&
+				!this.state.isLoading ? (
 					<div className="text-center mt-3 mb-5">
 						{" "}
 						<h5

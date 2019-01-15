@@ -26,7 +26,7 @@ class CarouselPage extends Component {
               <View className="carousel-img-container">
                 <img
                   className="  carousel-img  "
-                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                  src="https://media-cdn.tripadvisor.com/media/photo-s/03/d9/80/f2/riverside-apartment-hotel.jpg"
                   alt="First slide"
                 />
                 <Mask overlay="black-light" />
@@ -39,7 +39,7 @@ class CarouselPage extends Component {
               <View className="carousel-img-container">
                 <img
                   className="  carousel-img"
-                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(99).jpg"
+                  src="https://s-ec.bstatic.com/images/hotel/max1024x768/115/115939417.jpg"
                   alt="Second slide"
                 />
                 <Mask overlay="black-strong" />
@@ -52,7 +52,7 @@ class CarouselPage extends Component {
               <View className="carousel-img-container">
                 <img
                   className=" carousel-img"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRER3Ep1psyHHEdb9hviH-aEE17F_DbeZj5EQX0VZlwvpZGImRbzw"
+                  src="https://static.euronews.com/articles/348248/1024x538_348248.jpg?1477848764"
                   alt="Third slide"
                 />
                 <Mask overlay="black-slight" />

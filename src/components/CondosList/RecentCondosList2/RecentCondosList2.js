@@ -22,6 +22,7 @@ class RecentCondosList extends Component {
 	}
 
 	render() {
+		const { recentCondos } = this.state;
 		return (
 			<div className="featured2-main-container shadow-3">
 				{" "}

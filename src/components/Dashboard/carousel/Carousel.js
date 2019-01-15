@@ -26,7 +26,7 @@ class CarouselPage extends Component {
               <View className="carousel-img-container">
                 <img
                   className="  carousel-img  "
-                  src="https://media-cdn.tripadvisor.com/media/photo-s/03/d9/80/f2/riverside-apartment-hotel.jpg"
+                  src="http://www.buildingshows.com/BuildingShows/media/BS/MarketInsights/90000018.jpg"
                   alt="First slide"
                 />
                 <Mask overlay="black-light" />

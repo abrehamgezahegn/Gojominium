@@ -32,7 +32,7 @@ class CondoDetail extends Component {
 	}
 
 	render() {
-		if (!!this.state.condo) {
+		if (!this.state.condo) {
 			return (
 				<div
 					style={{ width: "100%" }}

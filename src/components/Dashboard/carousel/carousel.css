@@ -28,12 +28,6 @@
 	}
 }
 
-@media (max-width: 380px) {
-	.carousel-img-container {
-		height: 50vw !important;
-	}
-}
-
 .carousel-img {
 	height: 100% !important;
 	width: 100% !important;

@@ -35,7 +35,7 @@ class MainCondosList extends Component {
 								color: "rgba(0,0,0,0.8)",
 								fontWeight: "600",
 								fontSize: "20px",
-								marginBottom: "60px"
+								marginBottom: "60px",
 								width: "100%"
 							}}
 							className="text-center"

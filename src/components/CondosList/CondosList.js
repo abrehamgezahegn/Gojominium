@@ -161,21 +161,6 @@ class CondosList extends Component {
 				) : (
 					<p> </p>
 				)}
-				{this.state.allCondominiums.length === 0 &&
-					this.state.isDisplayingFiltered && (
-						<h6
-							style={{
-								color: "rgba(0,0,0,0.8)",
-								fontWeight: "600",
-								fontSize: "20px",
-								marginBottom: "100px"
-							}}
-							className="text-center"
-						>
-							{" "}
-							Ooops, can't find you that!!
-						</h6>
-					)}
 				<div className="the-main-container">
 					<div className="d-flex flex-column">
 						<FeaturedCondosList2 /> <RecentCondosList2 />

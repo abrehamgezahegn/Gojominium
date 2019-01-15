@@ -9,14 +9,15 @@ class MainCondosList extends Component {
 			<div style={{ width: "100%" }}>
 				<div
 					style={{
-						width: "100%",
-						marginTop: "50px",
-						marginBottom: "30px"
+						width: "100%"
 					}}
 					className="d-flex justify-content-center"
 				>
 					{" "}
-					<Spin spinning={this.props.isLoading} />{" "}
+					<Spin
+						spinning={this.props.isLoading}
+						className="main-condo-list-spinner"
+					/>{" "}
 				</div>
 
 				{!this.props.isLoading && (
@@ -26,6 +27,24 @@ class MainCondosList extends Component {
 						))}
 					</div>
 				)}
+
+				{this.state.allCondominiums.length === 0 &&
+					this.state.isDisplayingFiltered && (
+						<h6
+							style={{
+								color: "rgba(0,0,0,0.8)",
+								fontWeight: "600",
+								fontSize: "20px",
+								marginBottom: "60px"
+								width: "100%"
+							}}
+							className="text-center"
+						>
+							{" "}
+							Ooops, can't find you that!!
+						</h6>
+					)}
+
 				{!this.props.isDisplayingFiltered &&
 					!this.props.isLoading && (
 						<div className="text-center" style={{ width: "100%" }}>

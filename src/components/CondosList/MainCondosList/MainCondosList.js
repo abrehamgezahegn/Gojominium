@@ -28,8 +28,8 @@ class MainCondosList extends Component {
 					</div>
 				)}
 
-				{this.state.allCondominiums.length === 0 &&
-					this.state.isDisplayingFiltered && (
+				{this.props.allCondominiums.length === 0 &&
+					this.props.isDisplayingFiltered && (
 						<h6
 							style={{
 								color: "rgba(0,0,0,0.8)",

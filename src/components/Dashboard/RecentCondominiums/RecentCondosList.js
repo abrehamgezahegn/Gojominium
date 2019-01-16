@@ -3,6 +3,7 @@ import "../featuredCondos/featuredCondos.css";
 import DashCondoCard from "../DashCondoCard/DashCondoCard";
 import axios from "axios";
 import { Spin } from "antd";
+import { herokuApi } from "../../../config/apiroutes";
 
 class RecentCondosList extends Component {
 	constructor() {
@@ -13,7 +14,7 @@ class RecentCondosList extends Component {
 	}
 	componentWillMount() {
 		axios
-			.get("https://gojominium-api.herokuapp.com/get_recent_condos")
+			.get(`${herokuApi}/get_recent_condos`)
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {

@@ -5,6 +5,7 @@ import MainCondosList from "./MainCondosList/MainCondosList";
 import RecentCondosList2 from "./RecentCondosList2/RecentCondosList2";
 import "./CondosList.css";
 import axios from "axios";
+import { herokuApi } from "../../config/apiroutes";
 
 class CondosList extends Component {
 	constructor() {
@@ -21,11 +22,7 @@ class CondosList extends Component {
 		window.scrollTo(0, 0);
 		this.setState({ isLoading: true });
 		axios
-			.get(
-				`https://gojominium-api.herokuapp.com/get_all_condos/${
-					this.state.offsetAll
-				}`
-			)
+			.get(`${herokuApi}/get_all_condos/${this.state.offsetAll}`)
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {
@@ -46,7 +43,7 @@ class CondosList extends Component {
 		this.setState({ isDisplayingFiltered: true, isLoading: true });
 		axios
 			.get(
-				`https://gojominium-api.herokuapp.com/get_filtered_condos/${location}/${type}/${sellorrent}/${minPrice}/${maxPrice}`
+				`${herokuApi}/get_filtered_condos/${location}/${type}/${sellorrent}/${minPrice}/${maxPrice}`
 			)
 			.then(res => {
 				if (res) {
@@ -73,7 +70,7 @@ class CondosList extends Component {
 		this.setState({ isDisplayingFiltered: false, offsetAll: 1 });
 		this.setState({ isLoading: true });
 		axios
-			.get(`https://gojominium-api.herokuapp.com/get_all_condos/${0}`)
+			.get(`${herokuApi}/get_all_condos/${0}`)
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {
@@ -90,11 +87,7 @@ class CondosList extends Component {
 	handleLoadMore = () => {
 		this.setState({ isLoading: true });
 		axios
-			.get(
-				`https://gojominium-api.herokuapp.com/get_all_condos/${
-					this.state.offsetAll
-				}`
-			)
+			.get(`${herokuApi}/get_all_condos/${this.state.offsetAll}`)
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {
@@ -122,10 +115,7 @@ class CondosList extends Component {
 	handleLoadPrev = () => {
 		this.setState({ isLoading: true });
 		axios
-			.get(
-				`https://gojominium-api.herokuapp.com/get_all_condos/${this
-					.state.offsetAll - 2}`
-			)
+			.get(`${herokuApi}/get_all_condos/${this.state.offsetAll - 2}`)
 			.then(res => {
 				if (res) {
 					if (res.data.message !== "something went wrong") {

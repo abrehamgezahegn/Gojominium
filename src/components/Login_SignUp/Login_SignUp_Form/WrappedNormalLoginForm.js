@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Icon, Input, Button, Checkbox, Spin } from "antd";
 import SignUpModal from "./SignUpModal/SignUpModal";
 import axios from "axios";
+import { herokuApi } from "../../../config/apiroutes";
 
 const FormItem = Form.Item;
 
@@ -38,7 +39,7 @@ class NormalLoginForm extends Component {
 			this.setState({ isLoading: true });
 			axios({
 				method: "post",
-				url: "https://gojominium-api.herokuapp.com/signin",
+				url: `${herokuApi}/signin`,
 				data: {
 					email: this.state.email,
 					password: this.state.password

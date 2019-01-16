@@ -3,6 +3,7 @@ import FeaturedCard from "./FeaturedCard";
 import "./featured2.css";
 import axios from "axios";
 import { Spin } from "antd";
+import { herokuApi } from "../../../config/apiroutes";
 
 class FeaturedCondosList extends Component {
 	constructor() {
@@ -14,7 +15,7 @@ class FeaturedCondosList extends Component {
 
 	componentDidMount() {
 		axios
-			.get("https://gojominium-api.herokuapp.com/get_featured_condos")
+			.get(`${herokuApi}/get_featured_condos`)
 			.then(res => {
 				this.setState({ featuredCondos: res.data.featuredCondos });
 			})

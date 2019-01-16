@@ -9,6 +9,7 @@ import { Animation } from "mdbreact";
 import uuid from "uuid";
 import axios from "axios";
 import jwt from "jsonwebtoken";
+import { herokuApi } from "../../../config/apiroutes";
 
 const Step = Steps.Step;
 
@@ -238,7 +239,7 @@ class AddForm2 extends Component {
 		if (!!this.props.editCondo) {
 			axios({
 				method: "put",
-				url: "https://gojominium-api.herokuapp.com/edit_condo",
+				url: `${herokuApi}/edit_condo`,
 				data: condominium
 			}).then(res => {
 				if (res) {
@@ -255,7 +256,7 @@ class AddForm2 extends Component {
 		} else {
 			axios({
 				method: "post",
-				url: "https://gojominium-api.herokuapp.com/post",
+				url: `${herokuApi}/post`,
 				data: condominium
 			}).then(res => {
 				if (res) {

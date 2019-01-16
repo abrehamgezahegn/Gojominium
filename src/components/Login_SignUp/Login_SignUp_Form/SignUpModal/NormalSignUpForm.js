@@ -4,6 +4,7 @@ import axios from "axios";
 import uuid from "uuid";
 import owasp from "owasp-password-strength-test";
 import "../../Login_Modal.css";
+import { herokuApi } from "../../../../config/apiroutes";
 
 owasp.config({
 	allowPassphrases: true,
@@ -59,7 +60,7 @@ class NormalSignUpForm extends Component {
 				this.setState({ isLoading: true });
 				axios({
 					method: "post",
-					url: "https://gojominium-api.herokuapp.com/register",
+					url: `${herokuApi}/register`,
 					data: {
 						userId: this.state.userId,
 						email: this.state.email,

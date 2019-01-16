@@ -3,6 +3,7 @@ import RecentListCondoCard from "./RecentListCondoCard";
 import "../FeaturedCondosList2/featured2.css";
 import axios from "axios";
 import { Spin } from "antd";
+import { herokuApi } from "../../../config/apiroutes";
 
 class RecentCondosList extends Component {
 	constructor() {
@@ -14,7 +15,7 @@ class RecentCondosList extends Component {
 
 	componentDidMount() {
 		axios
-			.get("https://gojominium-api.herokuapp.com/get_recent_condos")
+			.get(`${herokuApi}/get_recent_condos`)
 			.then(res => {
 				this.setState({ recentCondos: res.data.recentCondos });
 			})

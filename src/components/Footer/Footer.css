@@ -77,6 +77,19 @@
 	.footer-contact {
 		margin-bottom: 20px;
 	}
+
+	.footer-logo-text {
+		font-size: 40px;
+		font-weight: 700;
+		color: #d4a538;
+	}
+
+	.footer-logo-minium {
+		font-size: 15px;
+		font-weight: 500;
+		color: #d4a538;
+		margin-top: 8px;
+	}
 }
 
 .footer-nav-item {

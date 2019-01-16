@@ -4,6 +4,7 @@ import DetailInfo from "./DetailInfo/DetailInfo";
 import "./CondoDetail.css";
 import axios from "axios";
 import { Spin } from "antd";
+import { herokuApi } from "../../config/apiroutes";
 
 class CondoDetail extends Component {
 	constructor() {
@@ -16,11 +17,7 @@ class CondoDetail extends Component {
 	componentDidMount() {
 		window.scrollTo(0, 0);
 		axios
-			.get(
-				`https://gojominium-api.herokuapp.com/get_a_condo/${
-					this.props.match.params.condoId
-				}`
-			)
+			.get(`${herokuApi}/get_a_condo/${this.props.match.params.condoId}`)
 			.then(res => {
 				if (res) {
 					if (res.message !== "something went wrong") {

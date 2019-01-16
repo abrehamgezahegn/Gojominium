@@ -63,15 +63,17 @@ const Footer = () => (
 				</div>
 			</div>
 			<div className="footer-signup">
-				<p> Sign up to post your condominum. </p>
 				<AuthConsumer>
 					{context => {
 						if (context.isAuthed()) {
 							return (
-								<Button onClick={context.denieAccess}>
-									{" "}
-									Logout{" "}
-								</Button>
+								<div>
+									<p> Sign up to post your condominum. </p>
+									<Button onClick={context.denieAccess}>
+										{" "}
+										Logout{" "}
+									</Button>
+								</div>
 							);
 						} else {
 							return (

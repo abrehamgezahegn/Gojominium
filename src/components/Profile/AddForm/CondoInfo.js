@@ -8,6 +8,12 @@ import { Animation } from "mdbreact";
 const Option = Select.Option;
 
 //select things
+
+const apTypes = [
+	{ value: "Condominium", lable: "Condominium" },
+	{ value: "40/60", lable: "40/60" }
+];
+
 const locations = [
 	{ value: "Bole Arabsa", label: "Bole Arabsa" },
 	{ value: "Abado", label: "Abado" },
@@ -52,6 +58,29 @@ class CondoInfo extends Component {
 				)}
 				<Animation type="zoomInDown" duration="600ms">
 					<div className="d-flex justify-content-center flex-wrap other-inputs-container">
+						<div>
+							<Select
+								style={{ width: 160 }}
+								placeholder="Type"
+								optionFilterProp="children"
+								onChange={this.props.handleApTypeChange}
+								value={
+									this.props.state.apType
+										? this.props.state.aptype
+										: "Apartment type"
+								}
+								className="select-options type z-depth-1-half"
+							>
+								{apTypes.map(apType => (
+									<Option
+										value={apType.value}
+										key={apType.value}
+									>
+										{apType.label}
+									</Option>
+								))}
+							</Select>
+						</div>
 						<div>
 							<Select
 								showSearch
@@ -154,8 +183,8 @@ class CondoInfo extends Component {
 										? this.props.pricePlaceH
 										: this.props.state.status.toLowerCase() ===
 										  "for sell"
-											? "Selling Amount(Birr)"
-											: "Renting Price(Birr/month)"
+										? "Selling Amount(Birr)"
+										: "Renting Price(Birr/month)"
 								}
 								className="select-options input-price z-depth-1-half"
 								required

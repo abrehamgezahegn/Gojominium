@@ -22,7 +22,7 @@ const Footer = () => (
 					<h6 className="footer-nav-item grow"> Home </h6>{" "}
 				</Link>
 				<Link to="/condos">
-					<h6 className="footer-nav-item grow"> Condominums </h6>{" "}
+					<h6 className="footer-nav-item grow"> Apartments </h6>{" "}
 				</Link>
 			</div>
 			<div className="footer-contact">

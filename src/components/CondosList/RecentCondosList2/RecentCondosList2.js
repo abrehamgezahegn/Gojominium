@@ -27,7 +27,7 @@ class RecentCondosList extends Component {
 		return (
 			<div className="featured2-main-container shadow-3">
 				{" "}
-				<h6 className="featured2-header-text"> Recent Condominiums</h6>
+				<h6 className="featured2-header-text"> Recent Apartments</h6>
 				<div className="featured2-condos-container">
 					{recentCondos.length < 5 && (
 						<div

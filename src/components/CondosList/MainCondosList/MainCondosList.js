@@ -61,32 +61,31 @@ class MainCondosList extends Component {
 					</h6>
 				)}
 
-				{!this.props.isDisplayingFiltered &&
-					!this.props.isLoading && (
-						<div className="text-center" style={{ width: "100%" }}>
-							{this.props.offsetAll >= 2 && (
-								<Button
-									onClick={this.props.handleLoadPrev}
-									style={{
-										width: "80px",
-										marginRight: "20px"
-									}}
-									type="primary"
-								>
-									{" "}
-									Back{" "}
-								</Button>
-							)}
+				{!this.props.isDisplayingFiltered && !this.props.isLoading && (
+					<div className="text-center" style={{ width: "100%" }}>
+						{this.props.offsetAll >= 2 && (
 							<Button
-								onClick={this.props.handleLoadMore}
-								style={{ width: "80px" }}
+								onClick={this.props.handleLoadPrev}
+								style={{
+									width: "80px",
+									marginRight: "20px"
+								}}
 								type="primary"
 							>
 								{" "}
-								More{" "}
+								Back{" "}
 							</Button>
-						</div>
-					)}
+						)}
+						<Button
+							onClick={this.props.handleLoadMore}
+							style={{ width: "80px" }}
+							type="primary"
+						>
+							{" "}
+							More{" "}
+						</Button>
+					</div>
+				)}
 			</div>
 		);
 	}

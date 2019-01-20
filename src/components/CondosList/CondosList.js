@@ -135,6 +135,7 @@ class CondosList extends Component {
 	};
 
 	render() {
+		console.log(this.state.allCondominiums);
 		return (
 			<div>
 				{" "}

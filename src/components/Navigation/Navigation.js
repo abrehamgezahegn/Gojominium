@@ -45,7 +45,10 @@ class NavbarFeatures extends Component {
           scrollingNavbarOffset={20}
         >
           <NavbarBrand>
-            <h1 className="logo-letter"> ጎጆ </h1>
+            <NavLink to="/">
+              {" "}
+              <h1 className="logo-letter"> ጎጆ </h1>{" "}
+            </NavLink>
           </NavbarBrand>
           {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
           <Collapse isOpen={this.state.collapse} navbar>
@@ -58,7 +61,7 @@ class NavbarFeatures extends Component {
               <NavItem className="nav-item">
                 <NavLink to="/condos" activeClassName="is-active">
                   {" "}
-                  Condominiums{" "}
+                  Apartments{" "}
                 </NavLink>
               </NavItem>
               <NavItem

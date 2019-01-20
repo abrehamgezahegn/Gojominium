@@ -10,6 +10,7 @@ import uuid from "uuid";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import { herokuApi } from "../../../config/apiroutes";
+import { storage } from "../../../firebase/firebaseConfig";
 
 const Step = Steps.Step;
 
@@ -32,6 +33,7 @@ class AddForm2 extends Component {
 			current: 0,
 			userId: "",
 			id: uuid(),
+			apType: "",
 			location: "",
 			type: "",
 			status: "",
@@ -47,6 +49,8 @@ class AddForm2 extends Component {
 			ceramics: false,
 			addFeatures: [],
 			featured: false,
+			images: [],
+			imageUrls: [],
 			errorMessage: "",
 			isTyping: false,
 			pricePlaceH: "Price",
@@ -64,6 +68,7 @@ class AddForm2 extends Component {
 		if (this.props.editCondo) {
 			const {
 				id,
+				apType,
 				location,
 				type,
 				sellorrent,
@@ -80,6 +85,7 @@ class AddForm2 extends Component {
 			} = this.props.editCondo;
 			this.setState({
 				id,
+				apType,
 				location,
 				type,
 				status: sellorrent,
@@ -116,6 +122,10 @@ class AddForm2 extends Component {
 	}
 
 	//*******Change Handlers********//
+
+	handleApTypeChange = value => {
+		this.setState({ apType: value });
+	};
 
 	handleLocChange = value => {
 		this.setState({ location: value });
@@ -175,25 +185,37 @@ class AddForm2 extends Component {
 	//******************************************************//
 
 	//**********form navigation handlers**************//
-	nextImage = () => {
+	nextImage = images => {
 		const current = this.state.current + 1;
-		this.setState({ current });
+
+		this.setState({ current, images });
 	};
 
 	nextMain = () => {
-		const { location, type, status, phoneNo, floor, price } = this.state;
+		const {
+			apType,
+			location,
+			type,
+			status,
+			phoneNo,
+			floor,
+			price
+		} = this.state;
 		if (
+			(!!apType,
 			!!location &&
-			!!type &&
-			!!status &&
-			phoneNo.length === 13 &&
-			!!floor &&
-			!!price
+				!!type &&
+				!!status &&
+				phoneNo.length === 13 &&
+				!!floor &&
+				!!price)
 		) {
+			const current = this.state.current + 1;
+
 			this.setState({
-				errorMessage: ""
+				errorMessage: "",
+				current
 			});
-			this.nextImage();
 		} else {
 			this.setState({
 				errorMessage: "Please fillout all the requested forms"
@@ -210,31 +232,82 @@ class AddForm2 extends Component {
 	setCondoObject = () => {
 		const checkFeature = feature =>
 			this.state.addFeatures.includes(feature);
-		const condominium = {
-			ownerid: this.state.userId,
-			condoid: this.state.id,
-			location: this.state.location,
-			type: this.state.type,
-			sellorrent: this.state.status,
-			phonenumber: this.state.phoneNo,
-			floor: this.state.floor,
-			price: parseFloat(this.state.price),
-			area: parseFloat(this.state.area),
-			description: this.state.description,
-			kitchencabinate: checkFeature("kitchencabinet") ? true : false,
-			tiles: checkFeature("tiles") ? true : false,
-			gypsum: checkFeature("gypsum") ? true : false,
-			spotlights: checkFeature("spotlights") ? true : false,
-			ceramics: checkFeature("ceramics") ? true : false,
-			featured: this.state.featured
-		};
-		return condominium;
+
+		//uploading and setting up images urls
+
+		let condominium = undefined;
+		let imagesUploaded = false;
+
+		console.log("state images", this.state.images);
+
+		this.state.images.map(image => {
+			const uploadTask = storage.ref(`images/${image.name}`).put(image);
+			uploadTask.on(
+				"state_changed",
+				snapshot => {},
+				error => {
+					console.log(error);
+				},
+				() => {
+					storage
+						.ref("sadasdasdasd")
+						.child(image.name)
+						.getDownloadURL()
+						.then(res => {
+							this.setState({
+								imageUrls: [...this.state.imageUrls, res]
+							});
+						});
+				}
+			);
+		});
+
+		console.log("its still aync");
+
+		// if (imagesUploaded) {
+		// 	condominium = {
+		// 		ownerid: this.state.userId,
+		// 		condoid: this.state.id,
+		//      apType : this.state.apType,
+		// 		location: this.state.location,
+		// 		type: this.state.type,
+		// 		sellorrent: this.state.status,
+		// 		phonenumber: this.state.phoneNo,
+		// 		floor: this.state.floor,
+		// 		price: parseFloat(this.state.price),
+		// 		area: parseFloat(this.state.area),
+		// 		description: this.state.description,
+		// 		kitchencabinate: checkFeature("kitchencabinet") ? true : false,
+		// 		tiles: checkFeature("tiles") ? true : false,
+		// 		gypsum: checkFeature("gypsum") ? true : false,
+		// 		spotlights: checkFeature("spotlights") ? true : false,
+		// 		ceramics: checkFeature("ceramics") ? true : false,
+		// 		featured: this.state.featured,
+		// 		image1: this.state.imageUrls[0],
+		// 		image1: this.state.imageUrls[0],
+		// 		image1: this.state.imageUrls[0],
+		// 		image2: this.state.imageUrls[1],
+		// 		image3: this.state.imageUrls[2],
+		// 		image4: this.state.imageUrls[3],
+		// 		image5: this.state.imageUrls[4],
+		// 		image6: this.state.imageUrls[5],
+		// 		image7: this.state.imageUrls[6],
+		// 		image8: this.state.imageUrls[7],
+		// 		image9: this.state.imageUrls[8],
+		// 		image10: this.state.imageUrls[9]
+		// 	};
+		// }
+
+		// return condominium;
 	};
 
 	submitForm = () => {
 		this.setState({ isLoading: true });
 
+		//setting up cononminium infos
 		const condominium = this.setCondoObject();
+
+		console.log(condominium);
 
 		if (!!this.props.editCondo) {
 			axios({
@@ -253,7 +326,7 @@ class AddForm2 extends Component {
 					}
 				}
 			});
-		} else {
+		} else if (!!condominium) {
 			axios({
 				method: "post",
 				url: `${herokuApi}/post`,
@@ -273,6 +346,7 @@ class AddForm2 extends Component {
 	};
 	render() {
 		const { current } = this.state;
+		console.log(this.state.imageUrls);
 		return (
 			<div className="step-form-main-container">
 				<div className="step-form-header">
@@ -291,6 +365,8 @@ class AddForm2 extends Component {
 								steps={steps}
 								nextImage={this.nextImage}
 								prev={this.prev}
+								userId={this.state.userId}
+								images={this.state.images}
 							/>
 						)}
 						{current === 1 && (
@@ -299,6 +375,7 @@ class AddForm2 extends Component {
 								steps={steps}
 								nextMain={this.nextMain}
 								prev={this.prev}
+								handleApTypeChange={this.handleApTypeChange}
 								handleLocChange={this.handleLocChange}
 								handleTypeChange={this.handleTypeChange}
 								handleStatusChange={this.handleStatusChange}

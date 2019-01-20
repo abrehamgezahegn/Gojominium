@@ -95,7 +95,7 @@ class Filters extends Component {
 						{" "}
 						<p className="filters-header">
 							{" "}
-							Use filters to find you a hottie{" "}
+							Use filters to find the best results{" "}
 						</p>{" "}
 						<div className="filters-form-container d-flex justify-content-center flex-wrap">
 							<div>

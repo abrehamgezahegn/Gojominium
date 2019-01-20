@@ -27,10 +27,7 @@ class FeaturedCondosList extends Component {
 		return (
 			<div className="featured2-main-container shadow-3">
 				{" "}
-				<h6 className="featured2-header-text">
-					{" "}
-					Featured condominuims{" "}
-				</h6>
+				<h6 className="featured2-header-text"> Featured Apartments </h6>
 				<div className="featured2-condos-container">
 					{featuredCondos.length < 5 && (
 						<div

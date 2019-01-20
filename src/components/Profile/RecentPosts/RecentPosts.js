@@ -103,7 +103,7 @@ class RecentPosts extends Component {
 				) : (
 					<div className="recent-condos-container">
 						{this.state.userCondominiums.map(condo => (
-							<div>
+							<div key={condo.id}>
 								<CondoCard
 									key={condo.id}
 									condo={condo}

@@ -10,6 +10,8 @@ import {
 } from "mdbreact";
 import "./carousel.css";
 import { Button } from "antd";
+import { Link } from "react-router-dom";
+import { AuthConsumer } from "../../../contexts/MyAuthProvider";
 
 class CarouselPage extends Component {
   render() {
@@ -33,7 +35,31 @@ class CarouselPage extends Component {
                 <Mask overlay="black-light" />
               </View>
               <CarouselCaption>
-                <Button className="carousel-btn"> Sell a condo</Button>
+                <AuthConsumer>
+                  {context => {
+                    if (context.isAuthed()) {
+                      return (
+                        <Link to="/profile">
+                          {" "}
+                          <Button className="carousel-btn">
+                            {" "}
+                            Sell and rent
+                          </Button>{" "}
+                        </Link>
+                      );
+                    } else {
+                      return (
+                        <Button
+                          className="carousel-btn"
+                          onClick={context.setModalVisible}
+                        >
+                          {" "}
+                          Sell and rent
+                        </Button>
+                      );
+                    }
+                  }}
+                </AuthConsumer>
               </CarouselCaption>
             </CarouselItem>
             <CarouselItem itemId="2">
@@ -46,7 +72,10 @@ class CarouselPage extends Component {
                 <Mask overlay="black-strong" />
               </View>
               <CarouselCaption>
-                <Button className="carousel-btn">Buy a condo </Button>
+                <Link to="/condos">
+                  {" "}
+                  <Button className="carousel-btn">Buy and rent</Button>{" "}
+                </Link>
               </CarouselCaption>
             </CarouselItem>
             <CarouselItem itemId="3">
@@ -59,7 +88,9 @@ class CarouselPage extends Component {
                 <Mask overlay="black-slight" />
               </View>
               <CarouselCaption>
-                <Button className="carousel-btn"> Search for a condo </Button>
+                <Link to="/condos">
+                  <Button className="carousel-btn"> Search </Button>{" "}
+                </Link>
               </CarouselCaption>
             </CarouselItem>
           </CarouselInner>

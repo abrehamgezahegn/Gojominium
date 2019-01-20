@@ -108,6 +108,15 @@
 	color: #c62828;
 	font-weight: 500;
 }
+
+@media (max-width: 400px) {
+	.error-message {
+		color: #c62828;
+		font-weight: 500;
+		font-size: 13px;
+	}
+}
+
 .invalid-number {
 	color: #c62828;
 	text-align: left;
@@ -124,5 +133,36 @@
 @media (max-width: 450px) {
 	.okay-checkbox {
 		margin-left: 20px;
+	}
+}
+
+.upload-btn-wrapper {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	cursor: pointer !important;
+}
+
+.upload-btn {
+	cursor: pointer !important;
+}
+
+.upload-btn-wrapper input[type="file"] {
+	font-size: 100px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
+.file-name-list {
+	height: 200px;
+	width: 400px;
+	background-color: rgba(255, 255, 255, 0.86);
+	overflow-y: scroll;
+}
+
+@media (max-width: 400px) {
+	.file-name-list {
+		width: 350px;
 	}
 }

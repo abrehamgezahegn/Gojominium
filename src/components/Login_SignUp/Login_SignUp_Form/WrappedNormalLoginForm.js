@@ -127,11 +127,8 @@ class NormalLoginForm extends Component {
 					<FormItem>
 						{getFieldDecorator("remember", {
 							valuePropName: "checked",
-							initialValue: true
+							initialValue: false
 						})(<Checkbox>Remember me</Checkbox>)}
-						<a className="login-form-forgot" href="">
-							Forgot password
-						</a>
 						<Spin spinning={this.state.isLoading}>
 							<Button
 								type="primary"

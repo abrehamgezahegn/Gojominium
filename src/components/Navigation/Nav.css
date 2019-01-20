@@ -99,6 +99,7 @@
 }
 
 .logo-letter {
-	color: #d4a538;
+	color: #d4a538 !important;
 	font-weight: 700;
+	margin-bottom: 0px;
 }

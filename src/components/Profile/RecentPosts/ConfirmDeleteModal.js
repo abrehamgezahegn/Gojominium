@@ -12,6 +12,7 @@ class ConfirmDeleteModal extends Component {
           visible={this.props.isModalVisible}
           onOk={() => this.props.setModalVisible(false)}
           onCancel={() => this.props.setModalVisible(false)}
+          maskClosable={false}
         >
           <p className="text-center mt-2 mb-2"> Are you sure? </p>
           {
@@ -29,11 +30,12 @@ class ConfirmDeleteModal extends Component {
                 {" "}
                 Delete{" "}
               </Button>{" "}
-              <Spin spinning={this.props.isLoading} className="ml-1 mr-4" />
+              <Spin spinning={this.props.deleteLoading} className="ml-1 mr-4" />
               <Button
                 onClick={() => {
                   this.props.setModalVisible(false);
                 }}
+                disabled={this.props.deleteLoading}
               >
                 {" "}
                 Cancel{" "}

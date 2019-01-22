@@ -92,7 +92,7 @@ class NormalLoginForm extends Component {
 										style={{ color: "rgba(0,0,0,.25)" }}
 									/>
 								}
-								placeholder="Eamil address"
+								placeholder="Email address"
 								type="email"
 								name="email"
 								onChange={this.handleChange}

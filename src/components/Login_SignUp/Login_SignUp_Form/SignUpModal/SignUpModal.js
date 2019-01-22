@@ -13,6 +13,8 @@ class SignUpModal extends Component {
           visible={this.props.modal2Visible}
           onOk={() => this.props.setModal2Visible(false)}
           onCancel={() => this.props.setModal2Visible(false)}
+          maskClosable={false}
+          destroyOnClose={true}
         >
           <WrappedNormalSignUpForm
             grantAccess={this.props.grantAccess}

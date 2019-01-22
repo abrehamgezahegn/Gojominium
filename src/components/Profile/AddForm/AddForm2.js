@@ -149,7 +149,7 @@ class AddForm2 extends Component {
 	//*******Change Handlers********//
 
 	handleApTypeChange = value => {
-		this.setState({ apType: value });
+		this.setState({ apType: value, location: "" });
 	};
 
 	handleLocChange = value => {

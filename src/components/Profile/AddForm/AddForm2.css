@@ -166,3 +166,9 @@
 		width: 350px;
 	}
 }
+
+.upload-images {
+	height: 150px;
+	width: 150px;
+	margin: 10px;
+}

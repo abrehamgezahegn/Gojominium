@@ -144,6 +144,7 @@ class AdditionalInfo extends Component {
 						className="prev-btn step-btn"
 						style={{ marginLeft: 8 }}
 						onClick={this.props.prev}
+						disabled={this.props.isLoading}
 					>
 						Previous
 					</Button>

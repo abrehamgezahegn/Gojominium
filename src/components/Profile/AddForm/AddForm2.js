@@ -51,6 +51,7 @@ class AddForm2 extends Component {
 			featured: false,
 			images: [],
 			imageUrls: [],
+			editImages: [],
 			errorMessage: "",
 			isTyping: false,
 			pricePlaceH: "Price",
@@ -65,10 +66,12 @@ class AddForm2 extends Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props.editCondo);
+
 		if (this.props.editCondo) {
 			const {
 				id,
-				apType,
+				aptype,
 				location,
 				type,
 				sellorrent,
@@ -81,11 +84,21 @@ class AddForm2 extends Component {
 				tiles,
 				gypsum,
 				spotlights,
-				ceramics
+				ceramics,
+				image1,
+				image2,
+				image3,
+				image4,
+				image5,
+				image6,
+				image7,
+				image8,
+				image9,
+				image10
 			} = this.props.editCondo;
 			this.setState({
 				id,
-				apType,
+				apType: aptype,
 				location,
 				type,
 				status: sellorrent,
@@ -98,7 +111,19 @@ class AddForm2 extends Component {
 				tiles,
 				gypsum,
 				spotlights,
-				ceramics
+				ceramics,
+				editImages: [
+					image1,
+					image2,
+					image3,
+					image4,
+					image5,
+					image6,
+					image7,
+					image8,
+					image9,
+					image10
+				]
 			});
 
 			const editFeaturesArray = [];
@@ -182,6 +207,10 @@ class AddForm2 extends Component {
 		this.setState({ featured: !this.state.featured, isLoading: false });
 	};
 
+	onImageClear = () => {
+		this.setState({ images: [], imageUrls: [], editImages: [] });
+	};
+
 	//******************************************************//
 
 	//**********form navigation handlers**************//
@@ -228,6 +257,7 @@ class AddForm2 extends Component {
 		const current = this.state.current - 1;
 		this.setState({ current, isLoading: false });
 	};
+
 	//***************************************************//
 
 	uploadImagesToFirebase = () => {
@@ -269,6 +299,11 @@ class AddForm2 extends Component {
 		const checkFeature = feature =>
 			this.state.addFeatures.includes(feature);
 
+		const imageUrls1 = this.state.editImages.filter(url => url !== null);
+		const imageUrls2 = this.state.imageUrls.filter(url => url !== null);
+
+		const imageUrls3 = [...imageUrls1, ...imageUrls2];
+
 		const condominium = {
 			ownerid: this.state.userId,
 			condoid: this.state.id,
@@ -287,7 +322,7 @@ class AddForm2 extends Component {
 			spotlights: checkFeature("spotlights") ? true : false,
 			ceramics: checkFeature("ceramics") ? true : false,
 			featured: this.state.featured,
-			images: this.state.imageUrls
+			images: imageUrls3
 		};
 
 		return condominium;
@@ -347,6 +382,8 @@ class AddForm2 extends Component {
 	render() {
 		const { current } = this.state;
 
+		console.log(this.state);
+
 		return (
 			<div className="step-form-main-container">
 				<div className="step-form-header">
@@ -364,9 +401,11 @@ class AddForm2 extends Component {
 								current={current}
 								steps={steps}
 								nextImage={this.nextImage}
+								onImageClear={this.onImageClear}
 								prev={this.prev}
 								userId={this.state.userId}
 								images={this.state.images}
+								editImages={this.state.editImages}
 							/>
 						)}
 						{current === 1 && (

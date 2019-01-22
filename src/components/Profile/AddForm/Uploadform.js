@@ -16,16 +16,30 @@ class Uploadfrom extends Component {
 		this.setState({ images: this.props.images });
 	}
 
+	onImageClear = () => {
+		this.setState({ images: [] });
+		this.props.onImageClear();
+	};
+
 	handleImageChange = e => {
 		const images = [...e.target.files];
 
-		this.setState({ images: [...e.target.files] });
+		this.setState({ images: [...this.state.images, ...e.target.files] });
 	};
 
 	handleImageNext = e => {
-		if (this.state.images.length === 0) {
+		let array = [];
+
+		if (this.props.editImages) {
+			array = this.props.editImages.filter(img => img !== null);
+		}
+
+		if (
+			this.state.images.length === 0 &&
+			this.props.editImages.length === 0
+		) {
 			this.setState({ errMessage: "Please post atleast one picture" });
-		} else if (this.state.images.length > 10) {
+		} else if (this.state.images.length + array.length > 10) {
 			this.setState({
 				errMessage: "More than 10 pictures is not allowed"
 			});
@@ -35,6 +49,8 @@ class Uploadfrom extends Component {
 	};
 
 	render() {
+		const { editImages } = this.props;
+
 		return (
 			<div className="upload-container">
 				<p style={{ color: "rgba(255,255,255,0.7)", fontSize: "12px" }}>
@@ -57,20 +73,48 @@ class Uploadfrom extends Component {
 						className="file-field  d-flex justify-content-center flex-wrap"
 						style={{ width: "100%" }}
 					>
-						<div className="upload-btn-wrapper">
-							<Button className="upload-btn mr-2">
-								Upload Images
+						<div className="d-flex flex-column">
+							<div className="upload-btn-wrapper">
+								<Button className="upload-btn mr-2">
+									Add Images
+								</Button>
+
+								<input
+									type="file"
+									accept="image/*"
+									multiple
+									onChange={this.handleImageChange}
+								/>
+							</div>{" "}
+							<Button
+								style={{
+									width: "90px",
+									backgroundColor: "#33b5e5",
+									color: "white",
+									marginBottom: "20px"
+								}}
+								onClick={this.onImageClear}
+							>
+								Clear
 							</Button>
-							<input
-								type="file"
-								accept="image/*"
-								multiple
-								onChange={this.handleImageChange}
-							/>
 						</div>
 						<div className="file-name-list">
+							{editImages.length > 0 &&
+								editImages.map(url => {
+									if (url !== null) {
+										return (
+											<img
+												src={url}
+												className="upload-images"
+											/>
+										);
+									}
+								})}
 							{this.state.images.map(image => (
-								<p key={image.name}> {image.name} </p>
+								<p key={`${image.lastModified} ${image.size}`}>
+									{" "}
+									{image.name}{" "}
+								</p>
 							))}
 						</div>
 					</div>

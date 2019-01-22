@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./DetailInfo.css";
 import { Fa } from "mdbreact";
+import { storage } from "../../../firebase/firebaseConfig";
 
 class DetailInfo extends Component {
 	formatWithComma = price => {
@@ -29,11 +30,11 @@ class DetailInfo extends Component {
 							size="lg"
 							className="mr-3 ml-3 mt-1"
 						/>{" "}
-						<h4 className="price">
+						<h5 className="price">
 							{" "}
 							{this.formatWithComma(condo.price)}
 							Birr
-						</h4>
+						</h5>
 						{condo.sellorrent === "for rent" || "For rent" ? (
 							<p
 								style={{
@@ -59,7 +60,7 @@ class DetailInfo extends Component {
 							size="lg"
 							className="mr-4 ml-3 mt-1"
 						/>
-						<h4> {condo.location} </h4>{" "}
+						<h5> {condo.location} </h5>{" "}
 					</div>
 				</span>
 				<span className="d-flex flex-row mb-2">

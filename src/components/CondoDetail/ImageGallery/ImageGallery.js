@@ -3,57 +3,62 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "./ImageGallery.css";
 class CondoImages extends Component {
+
+
+
   render() {
-    const images = [
-      {
-        original: "http://lorempixel.com/1000/600/nature/1/",
-        thumbnail: "http://lorempixel.com/250/150/nature/1/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/2/",
-        thumbnail: "http://lorempixel.com/250/150/nature/2/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      },
-      {
-        original: "http://lorempixel.com/1000/600/nature/3/",
-        thumbnail: "http://lorempixel.com/250/150/nature/3/"
-      }
-    ];
+
+    const {condo , condoImages} =  this.props;
+
+  const images = condoImages.map(condo => {
+
+        // const original;
+        // const thumbnail;
+
+        return { original: `${condo}`  , thumbnail : `${condo}` }
+   })
+
+    // const images = [
+    //   {
+    //     original: `${condo.image1}`,
+    //     thumbnail: `${condo.image1}`
+    //   },
+    //   {
+    //     original:` ${condo.image2}`,
+    //     thumbnail: ` ${condo.image2}`
+    //   },
+    //   {
+    //     original:` ${condo.image3}`,
+    //     thumbnail:` ${condo.image3}`
+    //   },
+    //    {
+    //     original: `${condo.image4}`,
+    //     thumbnail: `${condo.image4}`,
+    //   },
+    //   {
+    //     original:` ${condo.image5}`,
+    //     thumbnail: ` ${condo.image5}`,
+    //   },
+    //   {
+    //     original:` ${condo.image6}`,
+    //     thumbnail: ` ${condo.image6}`,
+    //   },
+    //     {
+    //     original:` ${condo.image7}`,
+    //     thumbnail: ` ${condo.image7}`,
+    //   },
+    //    {
+    //     original: `${condo.image8}`,
+    //     thumbnail:  `${condo.image8}`      },
+    //   {
+    //     original:` ${condo.image9}`,
+    //     thumbnail:` ${condo.image9}`,
+    //   },
+    //   {
+    //     original:` ${condo.image10}`,
+    //     thumbnail:` ${condo.image10}`,
+    //   },
+    // ];
 
     return (
       <ImageGallery
@@ -61,7 +66,7 @@ class CondoImages extends Component {
         lazyLoad={true}
         showBullets={true}
         showPlayButton={false}
-        defaultImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRql1JtiIpu_04sngWp6ayekAIvwr1Msf88l9-GEoNCx68HSonHA"
+        defaultImage="https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
       />
     );
   }

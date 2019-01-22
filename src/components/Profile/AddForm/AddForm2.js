@@ -185,6 +185,7 @@ class AddForm2 extends Component {
 	//******************************************************//
 
 	//**********form navigation handlers**************//
+
 	nextImage = images => {
 		const current = this.state.current + 1;
 
@@ -229,19 +230,11 @@ class AddForm2 extends Component {
 	};
 	//***************************************************//
 
-	setCondoObject = () => {
-		const checkFeature = feature =>
-			this.state.addFeatures.includes(feature);
-
-		//uploading and setting up images urls
-
-		let condominium = undefined;
-		let imagesUploaded = false;
-
-		console.log("state images", this.state.images);
-
+	uploadImagesToFirebase = () => {
 		this.state.images.map(image => {
-			const uploadTask = storage.ref(`images/${image.name}`).put(image);
+			const uploadTask = storage
+				.ref(`${this.state.id}/${image.name}`)
+				.put(image);
 			uploadTask.on(
 				"state_changed",
 				snapshot => {},
@@ -250,60 +243,66 @@ class AddForm2 extends Component {
 				},
 				() => {
 					storage
-						.ref("sadasdasdasd")
+						.ref(`${this.state.id}`)
 						.child(image.name)
 						.getDownloadURL()
-						.then(res => {
+						.then(url => {
 							this.setState({
-								imageUrls: [...this.state.imageUrls, res]
+								imageUrls: [...this.state.imageUrls, url]
 							});
+						})
+						.then(() => {
+							if (
+								this.state.images.length ===
+								this.state.imageUrls.length
+							) {
+								console.log(this.state.imageUrls);
+								this.saveToDatabase();
+							}
 						});
 				}
 			);
 		});
+	};
 
-		console.log("its still aync");
+	setCondoObject = () => {
+		const checkFeature = feature =>
+			this.state.addFeatures.includes(feature);
 
-		// if (imagesUploaded) {
-		// 	condominium = {
-		// 		ownerid: this.state.userId,
-		// 		condoid: this.state.id,
-		//      apType : this.state.apType,
-		// 		location: this.state.location,
-		// 		type: this.state.type,
-		// 		sellorrent: this.state.status,
-		// 		phonenumber: this.state.phoneNo,
-		// 		floor: this.state.floor,
-		// 		price: parseFloat(this.state.price),
-		// 		area: parseFloat(this.state.area),
-		// 		description: this.state.description,
-		// 		kitchencabinate: checkFeature("kitchencabinet") ? true : false,
-		// 		tiles: checkFeature("tiles") ? true : false,
-		// 		gypsum: checkFeature("gypsum") ? true : false,
-		// 		spotlights: checkFeature("spotlights") ? true : false,
-		// 		ceramics: checkFeature("ceramics") ? true : false,
-		// 		featured: this.state.featured,
-		// 		image1: this.state.imageUrls[0],
-		// 		image1: this.state.imageUrls[0],
-		// 		image1: this.state.imageUrls[0],
-		// 		image2: this.state.imageUrls[1],
-		// 		image3: this.state.imageUrls[2],
-		// 		image4: this.state.imageUrls[3],
-		// 		image5: this.state.imageUrls[4],
-		// 		image6: this.state.imageUrls[5],
-		// 		image7: this.state.imageUrls[6],
-		// 		image8: this.state.imageUrls[7],
-		// 		image9: this.state.imageUrls[8],
-		// 		image10: this.state.imageUrls[9]
-		// 	};
-		// }
+		const condominium = {
+			ownerid: this.state.userId,
+			condoid: this.state.id,
+			apType: this.state.apType,
+			location: this.state.location,
+			type: this.state.type,
+			sellorrent: this.state.status,
+			phonenumber: this.state.phoneNo,
+			floor: this.state.floor,
+			price: parseFloat(this.state.price),
+			area: parseFloat(this.state.area),
+			description: this.state.description,
+			kitchencabinate: checkFeature("kitchencabinet") ? true : false,
+			tiles: checkFeature("tiles") ? true : false,
+			gypsum: checkFeature("gypsum") ? true : false,
+			spotlights: checkFeature("spotlights") ? true : false,
+			ceramics: checkFeature("ceramics") ? true : false,
+			featured: this.state.featured,
+			images: this.state.imageUrls
+		};
 
-		// return condominium;
+		return condominium;
 	};
 
 	submitForm = () => {
 		this.setState({ isLoading: true });
 
+		// image upload
+
+		this.uploadImagesToFirebase();
+	};
+
+	saveToDatabase = () => {
+		console.log(" all images uploaded am saving to database");
 		//setting up cononminium infos
 		const condominium = this.setCondoObject();
 
@@ -344,9 +343,10 @@ class AddForm2 extends Component {
 			});
 		}
 	};
+
 	render() {
 		const { current } = this.state;
-		console.log(this.state.imageUrls);
+
 		return (
 			<div className="step-form-main-container">
 				<div className="step-form-header">

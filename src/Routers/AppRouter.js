@@ -18,15 +18,15 @@ const checkAuth = () => {
 		return false;
 	}
 
-	try {
-		const { exp } = jwt.decode(token);
+	// try {
+	// 	const { exp } = jwt.decode(token);
 
-		if (exp < new Date().getTime() / 1000) {
-			return false;
-		}
-	} catch (err) {
-		return false;
-	}
+	// 	if (exp < new Date().getTime() / 1000) {
+	// 		return false;
+	// 	}
+	// } catch (err) {
+	// 	return false;
+	// }
 
 	return true;
 };

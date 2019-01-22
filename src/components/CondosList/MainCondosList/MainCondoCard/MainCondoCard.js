@@ -164,9 +164,9 @@ class MainCondoCard extends Component {
 						<Col>
 							<Card className="main-card shadow-1">
 								<CardImage
-									className="img-fluid main-card-img"
-									src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-									waves
+									className=" main-card-img"
+									src={condo.image1 || "https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
+} 									waves
 								/>
 								<CardBody className="special-color-dark">
 									<div className="d-flex justify-content-end">

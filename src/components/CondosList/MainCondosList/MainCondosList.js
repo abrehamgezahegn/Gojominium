@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MainCondoCard from "./MainCondoCard/MainCondoCard";
 import "./mainList.css";
 import { Button, Spin } from "antd";
+import { storage } from "../../../firebase/firebaseConfig";
 
 class MainCondosList extends Component {
 	render() {

@@ -29,6 +29,31 @@
 	outline: none !important;
 }
 
+
+.image-gallery-image img{
+	max-height: 380px 
+}
+
+@media(max-width: 505px ){
+	.image-gallery-image img{
+	max-height: 300px 
+}
+}
+
+
+@media(max-width: 470px ){
+	.image-gallery-image img{
+	max-height: 280px 
+}
+}
+
+@media(max-width: 400px ){
+	.image-gallery-image img{
+	max-height: 230px 
+}
+}
+
+
 .image-gallery-play-button {
 	outline: none !important;
 }
@@ -50,4 +75,12 @@
 		border-radius: 5px;
 		margin-top: 5px;
 	}
+}
+
+ .fullscreen .image-gallery{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ 	} {
+
 }

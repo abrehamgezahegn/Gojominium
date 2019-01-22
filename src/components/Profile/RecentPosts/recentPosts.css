@@ -81,6 +81,13 @@
 	}
 }
 
+
+.card-img-top{
+	height: 150px !important;
+	width: 100% !important;
+}
+
+
 .card-body {
 	padding-top: 13px !important;
 	padding-right: 5px !important;

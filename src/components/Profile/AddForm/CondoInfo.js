@@ -10,8 +10,13 @@ const Option = Select.Option;
 //select things
 
 const apTypes = [
-	{ value: "Condominium", lable: "Condominium" },
-	{ value: "40/60", lable: "40/60" }
+	{ value: "Condominium", label: "Condominium" },
+	{ value: "40/60", label: "40/60" }
+];
+
+const fourty60Locations = [
+	{ value: "Figa", label: "Figa" },
+	{ value: "Lideta", label: "Lideta" }
 ];
 
 const locations = [
@@ -61,12 +66,12 @@ class CondoInfo extends Component {
 						<div>
 							<Select
 								style={{ width: 160 }}
-								placeholder="Type"
+								placeholder="Apartment type"
 								optionFilterProp="children"
 								onChange={this.props.handleApTypeChange}
 								value={
 									this.props.state.apType
-										? this.props.state.aptype
+										? this.props.state.apType
 										: "Apartment type"
 								}
 								className="select-options type z-depth-1-half"
@@ -84,6 +89,7 @@ class CondoInfo extends Component {
 						<div>
 							<Select
 								showSearch
+								disabled={!this.props.state.apType}
 								style={{ width: 200 }}
 								placeholder="Location"
 								optionFilterProp="children"
@@ -100,11 +106,23 @@ class CondoInfo extends Component {
 										.indexOf(input.toLowerCase()) >= 0
 								}
 							>
-								{locations.map(loc => (
-									<Option value={loc.value} key={loc.value}>
-										{loc.label}
-									</Option>
-								))}
+								{this.props.state.apType === "Condominium"
+									? locations.map(loc => (
+											<Option
+												value={loc.value}
+												key={loc.value}
+											>
+												{loc.label}
+											</Option>
+									  ))
+									: fourty60Locations.map(loc => (
+											<Option
+												value={loc.value}
+												key={loc.value}
+											>
+												{loc.label}
+											</Option>
+									  ))}
 							</Select>
 						</div>
 						<div>

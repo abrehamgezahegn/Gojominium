@@ -21,8 +21,8 @@ class DashCondoCard extends Component {
 					<div className="view overlay">
 						<img
 							className="card-img-top"
-							src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-							alt="condo-card"
+									src={condo.image1 || "https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
+}							alt="condo-card"
 						/>
 
 						<a href="#!">

@@ -29,30 +29,27 @@
 	outline: none !important;
 }
 
-
-.image-gallery-image img{
-	max-height: 380px 
+.image-gallery-image img {
+	max-height: 380px;
 }
 
-@media(max-width: 505px ){
-	.image-gallery-image img{
-	max-height: 300px 
-}
-}
-
-
-@media(max-width: 470px ){
-	.image-gallery-image img{
-	max-height: 280px 
-}
+/*@media (max-width: 505px) {
+	.image-gallery-image img {
+		max-height: 300px;
+	}
 }
 
-@media(max-width: 400px ){
-	.image-gallery-image img{
-	max-height: 230px 
-}
+@media (max-width: 470px) {
+	.image-gallery-image img {
+		max-height: 280px;
+	}
 }
 
+@media (max-width: 400px) {
+	.image-gallery-image img {
+		max-height: 230px;
+	}
+}*/
 
 .image-gallery-play-button {
 	outline: none !important;
@@ -77,10 +74,8 @@
 	}
 }
 
- .fullscreen .image-gallery{
+.fullscreen .image-gallery {
 	display: flex;
 	justify-content: center;
 	align-items: center;
- 	} {
-
 }

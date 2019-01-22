@@ -16,6 +16,7 @@ class LoginModal extends Component {
               visible={context.isModalVisible}
               onOk={() => context.setModalVisible(false)}
               onCancel={() => context.setModalVisible(false)}
+              maskClosable={false}
             >
               <WrappedNormalLoginForm
                 setModalVisible={context.setModalVisible}

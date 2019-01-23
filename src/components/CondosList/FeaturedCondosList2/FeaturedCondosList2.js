@@ -17,6 +17,7 @@ class FeaturedCondosList extends Component {
 		axios
 			.get(`${herokuApi}/get_featured_condos`)
 			.then(res => {
+				console.log(res.data.featuredCondos);
 				this.setState({ featuredCondos: res.data.featuredCondos });
 			})
 			.catch(err => console.log(err));
@@ -29,7 +30,7 @@ class FeaturedCondosList extends Component {
 				{" "}
 				<h6 className="featured2-header-text"> Featured Apartments </h6>
 				<div className="featured2-condos-container">
-					{featuredCondos.length < 5 && (
+					{featuredCondos.length < 1 && (
 						<div
 							className="d-flex justify-content-center"
 							style={{ width: "100%" }}
@@ -38,7 +39,7 @@ class FeaturedCondosList extends Component {
 						</div>
 					)}
 
-					{featuredCondos.length > 6 &&
+					{featuredCondos.length > 1 &&
 						featuredCondos.map(condo => (
 							<FeaturedCard key={condo.id} condo={condo} />
 						))}

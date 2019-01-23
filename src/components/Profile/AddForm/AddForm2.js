@@ -210,7 +210,12 @@ class AddForm2 extends Component {
 	};
 
 	onImageClear = () => {
-		this.setState({ images: [], imageUrls: [], editImages: [] });
+		if (!!this.props.editCondo) {
+			this.setState({ images: [], imageUrls: [], editImages: [] });
+			axios
+				.put(`${herokuApi}/delete_images/${this.state.id}`)
+				.then(console.log);
+		}
 	};
 
 	//******************************************************//

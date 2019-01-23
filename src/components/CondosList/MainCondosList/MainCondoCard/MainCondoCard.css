@@ -1,6 +1,6 @@
 .main-card-container {
 	width: 26%;
-	height: 300px !important;
+	height: 350px !important;
 	margin-right: 25px !important;
 	margin-bottom: 40px !important;
 	padding-right: 20px;
@@ -31,8 +31,9 @@
 .flipping-card {
 	background-color: #263238 !important;
 	width: 100% !important;
-	height: 300px !important;
+	height: 350px !important;
 	display: flex !important;
+	margin-bottom: 20px !important;
 	justify-content: center !important;
 	align-items: center !important;
 }
@@ -47,7 +48,7 @@
 .back {
 	background-color: #263238 !important;
 	width: 100% !important;
-	height: 300px !important;
+	height: 320px !important;
 	padding-left: 20px !important;
 	padding-top: 20px !important;
 	padding-right: 10px;
@@ -91,7 +92,7 @@
 
 @media (max-width: 1200px) {
 	.main-card {
-		padding-right: 10px !important;
+		/*padding-right: 10px !important;*/
 	}
 }
 
@@ -111,7 +112,3 @@
 	color: white;
 	border-radius: 5px;
 }
-
-/*.additional-f {
-	font-family: Arial;
-}*/

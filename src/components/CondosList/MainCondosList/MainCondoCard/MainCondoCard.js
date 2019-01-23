@@ -161,7 +161,7 @@ class MainCondoCard extends Component {
 						</div>
 					</FlippingCardBack>
 					<FlippingCardFront>
-						<Col>
+						<Col style={{ height: "300px" }}>
 							<Card className="main-card shadow-1">
 								<CardImage
 									className=" main-card-img"

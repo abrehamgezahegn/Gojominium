@@ -1,1 +1,1 @@
-export const herokuApi = "https://gojominium.herokuapp.com";
+export const herokuApi = "https://gojominium-api.herokuapp.com";

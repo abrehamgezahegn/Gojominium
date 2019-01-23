@@ -15,12 +15,13 @@ class CondosList extends Component {
 			offsetAll: 0,
 			isDisplayingFiltered: false,
 			isLoading: false,
-			message: ""
+			message: "",
+			networkErr: false
 		};
 	}
 	componentWillMount() {
 		window.scrollTo(0, 0);
-		this.setState({ isLoading: true });
+		this.setState({ isLoading: true, networkErr: "" });
 		axios
 			.get(`${herokuApi}/get_all_condos/${this.state.offsetAll}`)
 			.then(res => {
@@ -34,13 +35,19 @@ class CondosList extends Component {
 					}
 				}
 			})
-			.catch(err => console.log);
+			.catch(err => {
+				this.setState({ networkErr: true });
+			});
 	}
 
 	handleGetFilteredCondos = filters => {
 		const { location, type, sellorrent, minPrice, maxPrice } = filters;
 
-		this.setState({ isDisplayingFiltered: true, isLoading: true });
+		this.setState({
+			isDisplayingFiltered: true,
+			isLoading: true,
+			networkErr: false
+		});
 		axios
 			.get(
 				`${herokuApi}/get_filtered_condos/${location}/${type}/${sellorrent}/${minPrice}/${maxPrice}`
@@ -67,7 +74,11 @@ class CondosList extends Component {
 	};
 
 	handleClearFilters = () => {
-		this.setState({ isDisplayingFiltered: false, offsetAll: 1 });
+		this.setState({
+			isDisplayingFiltered: false,
+			offsetAll: 1,
+			networkErr: false
+		});
 		this.setState({ isLoading: true });
 		axios
 			.get(`${herokuApi}/get_all_condos/${0}`)
@@ -85,7 +96,7 @@ class CondosList extends Component {
 	};
 
 	handleLoadMore = () => {
-		this.setState({ isLoading: true });
+		this.setState({ isLoading: true, networkErr: false });
 		axios
 			.get(`${herokuApi}/get_all_condos/${this.state.offsetAll}`)
 			.then(res => {
@@ -113,7 +124,7 @@ class CondosList extends Component {
 	};
 
 	handleLoadPrev = () => {
-		this.setState({ isLoading: true });
+		this.setState({ isLoading: true, networkErr: false });
 		axios
 			.get(`${herokuApi}/get_all_condos/${this.state.offsetAll - 2}`)
 			.then(res => {
@@ -135,45 +146,61 @@ class CondosList extends Component {
 	};
 
 	render() {
-		console.log(this.state.allCondominiums);
-		return (
-			<div>
-				{" "}
-				<Filters
-					handleGetFilteredCondos={this.handleGetFilteredCondos}
-					handleClearFilters={this.handleClearFilters}
-				/>
-				{this.state.allCondominiums.length > 0 &&
-				this.state.isDisplayingFiltered ? (
-					<h5
-						style={{
-							color: "rgba(0,0,0,0.8)",
-							fontWeight: "600"
-						}}
-						className="text-center"
-					>
-						{" "}
-						Results of your search{" "}
-					</h5>
-				) : (
-					<p> </p>
-				)}
-				<div className="the-main-container">
-					<div className="d-flex flex-column">
-						<FeaturedCondosList2 /> <RecentCondosList2 />
-					</div>{" "}
-					<MainCondosList
-						allCondominiums={this.state.allCondominiums}
-						handleLoadPrev={this.handleLoadPrev}
-						handleLoadMore={this.handleLoadMore}
-						offsetAll={this.state.offsetAll}
-						isDisplayingFiltered={this.state.isDisplayingFiltered}
-						isLoading={this.state.isLoading}
-						message={this.state.message}
+		if (!this.state.networkErr) {
+			return (
+				<div>
+					{" "}
+					<Filters
+						handleGetFilteredCondos={this.handleGetFilteredCondos}
+						handleClearFilters={this.handleClearFilters}
 					/>
+					{this.state.allCondominiums.length > 0 &&
+					this.state.isDisplayingFiltered ? (
+						<h5
+							style={{
+								color: "rgba(0,0,0,0.8)",
+								fontWeight: "600"
+							}}
+							className="text-center"
+						>
+							{" "}
+							Results of your search{" "}
+						</h5>
+					) : (
+						<p> </p>
+					)}
+					<div className="the-main-container">
+						<div className="d-flex flex-column">
+							<FeaturedCondosList2 /> <RecentCondosList2 />
+						</div>{" "}
+						<MainCondosList
+							allCondominiums={this.state.allCondominiums}
+							handleLoadPrev={this.handleLoadPrev}
+							handleLoadMore={this.handleLoadMore}
+							offsetAll={this.state.offsetAll}
+							isDisplayingFiltered={
+								this.state.isDisplayingFiltered
+							}
+							isLoading={this.state.isLoading}
+							message={this.state.message}
+						/>
+					</div>
 				</div>
-			</div>
-		);
+			);
+		} else if (this.state.networkErr) {
+			return (
+				<div
+					style={{
+						marginTop: "200px",
+						marginBottom: "200px",
+						width: "100%"
+					}}
+					className=" text-center"
+				>
+					<h4> connection error, please reload the page!! </h4>
+				</div>
+			);
+		}
 	}
 }
 

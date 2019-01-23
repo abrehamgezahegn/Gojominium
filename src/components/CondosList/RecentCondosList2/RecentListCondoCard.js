@@ -10,13 +10,19 @@ class DashCondoCard extends Component {
 	render() {
 		const { condo } = this.props;
 		return (
-			<div style={{ width: "200px" }} className="animation-wrapper">
+			<div
+				style={{ width: "200px", marginRight: "50px" }}
+				className="animation-wrapper"
+			>
 				<div className="card">
 					<div className="view overlay">
 						<img
 							className="card-img-top"
-									src={condo.image1 || "https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
-}							alt="condo-card"
+							src={
+								condo.image1 ||
+								"https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
+							}
+							alt="condo-card"
 						/>
 
 						<a href="#!">

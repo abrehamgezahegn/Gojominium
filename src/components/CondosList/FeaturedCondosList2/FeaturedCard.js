@@ -16,15 +16,18 @@ class FeaturedCard extends Component {
 					type="jello"
 					duration="800ms"
 					delay="10s"
-					style={{ width: "200px", marginRight: "10px" }}
+					style={{ width: "200px", marginRight: "50px" }}
 					className="animation-wrapper"
 				>
 					<div className="card mr-1 featured-card-card">
 						<div className="view overlay">
 							<img
 								className="card-img-top"
-									src={condo.image1 || "https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
-}								alt="condo-card"
+								src={
+									condo.image1 ||
+									"https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
+								}
+								alt="condo-card"
 							/>
 
 							<a href="#!">

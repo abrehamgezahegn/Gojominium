@@ -1,7 +1,7 @@
 .main-card-container {
-	width: 32%;
-	height: 360px !important;
-	margin-right: 10px !important;
+	width: 26%;
+	height: 300px !important;
+	margin-right: 25px !important;
 	margin-bottom: 40px !important;
 	padding-right: 20px;
 	padding-left: 10px;
@@ -22,7 +22,7 @@
 }
 @media (max-width: 490px) {
 	.main-card-container {
-		width: 90%;
+		width: 80%;
 	}
 }
 .flipping-card-container {
@@ -31,7 +31,7 @@
 .flipping-card {
 	background-color: #263238 !important;
 	width: 100% !important;
-	height: 360px !important;
+	height: 300px !important;
 	display: flex !important;
 	justify-content: center !important;
 	align-items: center !important;
@@ -39,7 +39,7 @@
 .front {
 	background-color: #263238 !important;
 	width: 100% !important;
-	height: 360px !important;
+	height: 300px !important;
 	display: flex !important;
 	justify-content: center !important;
 	align-items: center !important;
@@ -47,7 +47,7 @@
 .back {
 	background-color: #263238 !important;
 	width: 100% !important;
-	height: 360px !important;
+	height: 300px !important;
 	padding-left: 20px !important;
 	padding-top: 20px !important;
 	padding-right: 10px;
@@ -83,7 +83,7 @@
 
 .main-card {
 	width: 100% !important;
-	height: 360px !important;
+	height: 300px !important;
 	margin-left: 0px;
 	padding: 0px;
 	margin-top: 0px !important;
@@ -102,7 +102,6 @@
 	height: 180px !important;
 	width: 100%;
 	object-fit: cover;
-
 }
 .feature-btn {
 	background-color: #9e9d24;

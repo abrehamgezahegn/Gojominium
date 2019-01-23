@@ -52,7 +52,7 @@
 }
 
 .fullscreen img {
-	max-height: 100% !important;
+	position: center;
 }
 
 .image-gallery-play-button {

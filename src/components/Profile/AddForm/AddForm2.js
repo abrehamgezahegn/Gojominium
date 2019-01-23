@@ -11,6 +11,7 @@ import axios from "axios";
 import jwt from "jsonwebtoken";
 import { herokuApi } from "../../../config/apiroutes";
 import { storage } from "../../../firebase/firebaseConfig";
+import moment from "moment";
 
 const Step = Steps.Step;
 
@@ -49,6 +50,7 @@ class AddForm2 extends Component {
 			ceramics: false,
 			addFeatures: [],
 			featured: false,
+			expireDate: undefined,
 			images: [],
 			imageUrls: [],
 			editImages: [],
@@ -304,6 +306,16 @@ class AddForm2 extends Component {
 
 		const imageUrls3 = [...imageUrls1, ...imageUrls2];
 
+		//set the expiration date for the featured aps
+
+		if (this.state.featured && !this.props.editCondo) {
+			const expDate = moment()
+				.add(20, "days")
+				.format("YYYY-MM-DDTHH:mm:ss.SSS");
+
+			this.setState({ expDate });
+		}
+
 		const condominium = {
 			ownerid: this.state.userId,
 			condoid: this.state.id,
@@ -322,6 +334,7 @@ class AddForm2 extends Component {
 			spotlights: checkFeature("spotlights") ? true : false,
 			ceramics: checkFeature("ceramics") ? true : false,
 			featured: this.state.featured,
+			expDate: this.state.featured ? this.state.expDate : null,
 			images: imageUrls3
 		};
 

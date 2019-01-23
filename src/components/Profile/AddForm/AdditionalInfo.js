@@ -59,7 +59,7 @@ class AdditionalInfo extends Component {
 								>
 									{" "}
 									(Little extra charge if you want your house
-									to be on front for one week)
+									to be on front for 20 days)
 								</p>
 							</div>
 						)}

@@ -197,7 +197,10 @@ class CondosList extends Component {
 					}}
 					className=" text-center"
 				>
-					<h4> connection error, please reload the page!! </h4>
+					<p className="connection-err-msg">
+						{" "}
+						connection error, please reload the page!!{" "}
+					</p>
 				</div>
 			);
 		}

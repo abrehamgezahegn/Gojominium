@@ -6,6 +6,11 @@
 	padding-bottom: 0px !important;
 }
 
+.navbar-nav {
+	text-align: center;
+	font-weight: 400;
+}
+
 .nav-bar-main {
 	width: 100%;
 	font-family: Palatino !important;
@@ -78,6 +83,7 @@
 	color: #00b0ff !important;
 	cursor: pointer;
 }
+
 .login-header {
 	width: 100%;
 }
@@ -86,7 +92,7 @@
 	font-weight: 400;
 	color: rgba(255, 255, 255, 0.8);
 	margin-top: 10px;
-	margin-bottom: 0px;
+	margin-bottom: 5px;
 	margin-left: 5px;
 }
 
@@ -102,4 +108,5 @@
 	color: #d4a538 !important;
 	font-weight: 700;
 	margin-bottom: 0px;
+	padding-bottom: 0px;
 }

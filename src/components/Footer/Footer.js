@@ -6,7 +6,7 @@ import { AuthConsumer } from "../../contexts/MyAuthProvider";
 import { Link } from "react-router-dom";
 
 const Footer = () => (
-	<div>
+	<div className="d-flex justify-content-end flex-column footer-main-main">
 		<div className="footer-main-container">
 			<div className="footer-logo">
 				{" "}

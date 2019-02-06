@@ -16,7 +16,11 @@ class FeaturedCard extends Component {
 					type="jello"
 					duration="800ms"
 					delay="10s"
-					style={{ width: "200px", marginRight: "50px" }}
+					style={{
+						width: "200px",
+						hieght: "240px",
+						marginRight: "50px"
+					}}
 					className="animation-wrapper"
 				>
 					<div className="card mr-1 featured-card-card">

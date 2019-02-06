@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Profile.css";
 import RecentPosts from "./RecentPosts/RecentPosts";
 import AddForm2 from "./AddForm/AddForm2";
 

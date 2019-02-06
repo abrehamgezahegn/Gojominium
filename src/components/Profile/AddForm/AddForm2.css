@@ -163,7 +163,8 @@
 
 @media (max-width: 400px) {
 	.file-name-list {
-		width: 350px;
+		width: 300px;
+		margin-right: 20px;
 	}
 }
 

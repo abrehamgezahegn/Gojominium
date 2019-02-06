@@ -36,34 +36,36 @@ class NormalLoginForm extends Component {
 			if (!err) {
 				// console.log("Received values of form: ", values);
 			}
-			this.setState({ isLoading: true });
-			axios({
-				method: "post",
-				url: `${herokuApi}/signin`,
-				data: {
-					email: this.state.email,
-					password: this.state.password
-				}
-			}).then(res => {
-				if (res) {
-					if (res.data !== "wrong credentials") {
-						this.setState({
-							email: "",
-							password: "",
-							errorMessage: ""
-						});
-						const token = res.data.token;
-						this.props.grantAccess(token);
-						this.props.setUserId();
-						this.props.setModalVisible(false);
-					} else if (res.data === "wrong credentials") {
-						this.setState({
-							errorMessage: "Wrong email or password",
-							isLoading: false
-						});
+			if (!!this.state.email && !!this.state.password) {
+				this.setState({ isLoading: true });
+				axios({
+					method: "post",
+					url: `${herokuApi}/signin`,
+					data: {
+						email: this.state.email,
+						password: this.state.password
 					}
-				}
-			});
+				}).then(res => {
+					if (res) {
+						if (res.data !== "wrong credentials") {
+							this.setState({
+								email: "",
+								password: "",
+								errorMessage: ""
+							});
+							const token = res.data.token;
+							this.props.grantAccess(token);
+							this.props.setUserId();
+							this.props.setModalVisible(false);
+						} else if (res.data === "wrong credentials") {
+							this.setState({
+								errorMessage: "Wrong email or password",
+								isLoading: false
+							});
+						}
+					}
+				});
+			}
 		});
 	};
 

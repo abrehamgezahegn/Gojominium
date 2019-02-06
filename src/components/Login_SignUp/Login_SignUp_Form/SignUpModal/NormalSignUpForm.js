@@ -50,13 +50,12 @@ class NormalSignUpForm extends Component {
 			if (!err) {
 				// console.log("Received values of form: ", values);
 			}
-			this.setState({ isLoading: true });
 			if (this.state.password !== this.state.confirmPassword) {
 				this.setState({
 					errorMessage: "Passwords do not match",
 					isLoading: false
 				});
-			} else if (this.state.passErrors.length === 0) {
+			} else if (this.state.passErrors.length === 0 && !err) {
 				this.setState({ isLoading: true });
 				axios({
 					method: "post",

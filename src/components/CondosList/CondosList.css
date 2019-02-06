@@ -13,7 +13,18 @@
 }
 
 .connection-err-msg {
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: 600;
-	color: rgba(255, 255, 255, 0.7);
+	margin-bottom: 200px;
+
+	color: rgba(0, 0, 0, 0.63);
+}
+
+@media (max-width: 500px) {
+	.connection-err-msg {
+		font-size: 15px;
+		margin-left: 10px;
+		margin-right: 10px;
+		/*margin-bottom: 100px;*/
+	}
 }

@@ -41,7 +41,7 @@
 
 @media (max-width: 470px) {
 	.image-gallery-image img {
-		max-height: 280px;
+		max-height: 250px;
 	}
 }
 
@@ -77,3 +77,12 @@
 		margin-top: 5px;
 	}
 }
+
+.image-gallery-content.fullscreen {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+

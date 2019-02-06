@@ -81,12 +81,10 @@
 	}
 }
 
-
-.card-img-top{
+.card-img-top {
 	height: 150px !important;
 	width: 100% !important;
 }
-
 
 .card-body {
 	padding-top: 13px !important;
@@ -106,55 +104,6 @@
 	background-color: #d84315 !important;
 	cursor: none;
 }
-
-/*@media (max-width: 400px) {
-	.recent-header-text {
-		font-size: 15px;
-		padding-top: 5px !important;
-	}
-
-	.rent-sell-btn {
-		font-size: 8px !important;
-		height: 25px !important;
-		width: 80px !important;
-		padding-right: 15px !important;
-		padding-left: 15px !important;
-	}
-
-	.edit-btn {
-		font-size: 10px !important;
-		background-color: #303f9f !important;
-		padding-right: 15px !important;
-		padding-left: 15px !important;
-		padding-top: 4px !important;
-		padding-bottom: 4px !important;
-		border-radius: 17px !important;
-	}
-}
-
-@media (max-width: 900px) {
-	.recent-header-text {
-		font-size: 17px;
-	}
-
-	.rent-sell-btn {
-		font-size: 10px !important;
-		height: 25px !important;
-		width: 80px !important;
-		padding-right: 13px !important;
-		padding-left: 13px !important;
-	}
-
-	.edit-btn {
-		font-size: 12px !important;
-		background-color: #303f9f !important;
-		padding-right: 15px !important;
-		padding-left: 15px !important;
-		padding-top: 4px !important;
-		padding-bottom: 4px !important;
-		border-radius: 17px !important;
-	}
-}*/
 
 .price {
 	font-weight: 800;

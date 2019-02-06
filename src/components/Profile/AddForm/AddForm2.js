@@ -57,7 +57,8 @@ class AddForm2 extends Component {
 			errorMessage: "",
 			isTyping: false,
 			pricePlaceH: "Price",
-			isLoading: false
+			isLoading: false,
+			imageCleared: false
 		};
 	}
 
@@ -210,12 +211,12 @@ class AddForm2 extends Component {
 	};
 
 	onImageClear = () => {
-		if (!!this.props.editCondo) {
-			this.setState({ images: [], imageUrls: [], editImages: [] });
-			axios
-				.put(`${herokuApi}/delete_images/${this.state.id}`)
-				.then(console.log);
-		}
+		this.setState({
+			images: [],
+			imageUrls: [],
+			editImages: [],
+			imageCleared: true
+		});
 	};
 
 	//******************************************************//
@@ -310,6 +311,12 @@ class AddForm2 extends Component {
 		const imageUrls2 = this.state.imageUrls.filter(url => url !== null);
 
 		const imageUrls3 = [...imageUrls1, ...imageUrls2];
+
+		if (this.state.imageCleared && !!this.props.editCondo) {
+			axios
+				.put(`${herokuApi}/delete_images/${this.state.id}`)
+				.then(console.log);
+		}
 
 		//set the expiration date for the featured aps
 

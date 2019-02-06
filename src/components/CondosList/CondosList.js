@@ -36,6 +36,7 @@ class CondosList extends Component {
 				}
 			})
 			.catch(err => {
+				console.log(err);
 				this.setState({ networkErr: true });
 			});
 	}
@@ -48,6 +49,9 @@ class CondosList extends Component {
 			isLoading: true,
 			networkErr: false
 		});
+
+		window.scrollTo(0, 140);
+
 		axios
 			.get(
 				`${herokuApi}/get_filtered_condos/${location}/${type}/${sellorrent}/${minPrice}/${maxPrice}`
@@ -70,7 +74,10 @@ class CondosList extends Component {
 					this.setState({ isLoading: false });
 				}
 			})
-			.catch(err => console.log(err));
+			.catch(err => {
+				console.log(err);
+				this.setState({ networkErr: true });
+			});
 	};
 
 	handleClearFilters = () => {
@@ -80,6 +87,9 @@ class CondosList extends Component {
 			networkErr: false
 		});
 		this.setState({ isLoading: true });
+
+		window.scrollTo(0, 140);
+
 		axios
 			.get(`${herokuApi}/get_all_condos/${0}`)
 			.then(res => {
@@ -92,11 +102,17 @@ class CondosList extends Component {
 					}
 				}
 			})
-			.catch(err => console.log(err));
+			.catch(err => {
+				console.log(err);
+				this.setState({ networkErr: true });
+			});
 	};
 
 	handleLoadMore = () => {
 		this.setState({ isLoading: true, networkErr: false });
+
+		window.scrollTo(0, 140);
+
 		axios
 			.get(`${herokuApi}/get_all_condos/${this.state.offsetAll}`)
 			.then(res => {
@@ -110,21 +126,20 @@ class CondosList extends Component {
 							offsetAll: this.state.offsetAll + 1,
 							isLoading: false
 						});
-						window.scrollTo(0, 140);
 					}
 				}
 			})
 			.catch(err => {
-				this.setState({
-					isLoading: false,
-					Message: "something went worng please refresh the page!!"
-				});
-				console.log(err);
+				err => {
+					console.log(err);
+					this.setState({ networkErr: true });
+				};
 			});
 	};
 
 	handleLoadPrev = () => {
 		this.setState({ isLoading: true, networkErr: false });
+		window.scrollTo(0, 140);
 		axios
 			.get(`${herokuApi}/get_all_condos/${this.state.offsetAll - 2}`)
 			.then(res => {
@@ -138,11 +153,13 @@ class CondosList extends Component {
 							offsetAll: this.state.offsetAll - 1,
 							isLoading: false
 						});
-						window.scrollTo(0, 140);
 					}
 				}
 			})
-			.catch(err => console.log(err));
+			.catch(err => {
+				console.log(err);
+				this.setState({ networkErr: true });
+			});
 	};
 
 	render() {
@@ -192,7 +209,6 @@ class CondosList extends Component {
 				<div
 					style={{
 						marginTop: "200px",
-						marginBottom: "200px",
 						width: "100%"
 					}}
 					className=" text-center"

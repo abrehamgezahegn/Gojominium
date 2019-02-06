@@ -24,11 +24,20 @@ class FeaturedCondosList extends Component {
 
 	render() {
 		const { featuredCondos } = this.state;
+
+		const condo = {
+			id: "123sadasd",
+			image1: "",
+			sellorrent: "For sell",
+			price: 10000,
+			type: "One bedroom",
+			location: "Jemo"
+		};
+
 		return (
 			<div className="featured-main-container shadow-3">
-				{" "}
 				<h5 className="featured-header-text"> Featured Apartments </h5>
-				<div className="recent-condos-container">
+				<div className="condos-scroll-container">
 					{featuredCondos.length < 5 && (
 						<div
 							className="d-flex justify-content-center"
@@ -48,3 +57,4 @@ class FeaturedCondosList extends Component {
 }
 
 export default FeaturedCondosList;
+

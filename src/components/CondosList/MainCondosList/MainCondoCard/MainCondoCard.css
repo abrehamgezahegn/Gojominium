@@ -48,7 +48,7 @@
 .back {
 	background-color: #263238 !important;
 	width: 100% !important;
-	height: 320px !important;
+	height: 350px !important;
 	padding-left: 20px !important;
 	padding-top: 20px !important;
 	padding-right: 10px;
@@ -57,18 +57,15 @@
 
 .back:hover::-webkit-scrollbar {
 	width: 12px;
-	/*height: 15px;  for horizontal scrollbars */
 }
 @media (max-width: 600px) {
 	.back:hover::-webkit-scrollbar {
 		width: 7px;
-		/*height: 15px;  for horizontal scrollbars */
 	}
 }
 @media (max-width: 380px) {
 	.back:hover::-webkit-scrollbar {
 		width: 4px;
-		/*height: 15px;  for horizontal scrollbars */
 	}
 }
 .back:hover::-webkit-scrollbar-track {
@@ -111,4 +108,9 @@
 	border: none;
 	color: white;
 	border-radius: 5px;
+}
+
+.card {
+	margin-left: 0px !important;
+	padding-right: 0px !important;
 }

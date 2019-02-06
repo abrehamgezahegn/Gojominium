@@ -24,9 +24,11 @@ class NavbarFeatures extends Component {
   }
 
   onClick() {
-    this.setState({
-      collapse: !this.state.collapse
-    });
+    if (this.state.collapse === true) {
+      this.setState({ collapse: false });
+    } else {
+      this.setState({ collapse: true });
+    }
   }
 
   scrollToBottom = () => {
@@ -47,21 +49,33 @@ class NavbarFeatures extends Component {
           <NavbarBrand>
             <NavLink to="/">
               {" "}
-              <h1 className="logo-letter"> ጎጆ </h1>{" "}
+              <h1 className="logo-letter" onClick={this.onClick}>
+                {" "}
+                ጎጆ{" "}
+              </h1>{" "}
             </NavLink>
           </NavbarBrand>
           {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
           <Collapse isOpen={this.state.collapse} navbar>
             <NavbarNav left>
               <NavItem className="nav-item">
-                <NavLink to="/" activeClassName="is-active" exact={true}>
-                  Home
+                <NavLink
+                  to="/"
+                  activeClassName="is-active"
+                  exact={true}
+                  onClick={this.onClick}
+                >
+                  HOME
                 </NavLink>
               </NavItem>
               <NavItem className="nav-item">
-                <NavLink to="/condos" activeClassName="is-active">
+                <NavLink
+                  to="/condos"
+                  activeClassName="is-active"
+                  onClick={this.onClick}
+                >
                   {" "}
-                  Apartments{" "}
+                  APARTMENTS{" "}
                 </NavLink>
               </NavItem>
               <NavItem
@@ -70,7 +84,9 @@ class NavbarFeatures extends Component {
                 activeClassName="is-active"
               >
                 {" "}
-                <p className="contact-us">Contact us </p>
+                <p className="contact-us" onClick={this.onClick}>
+                  CONTACT US{" "}
+                </p>
               </NavItem>
             </NavbarNav>
             <NavbarNav right>
@@ -84,15 +100,15 @@ class NavbarFeatures extends Component {
                           className="d-flex"
                           activeClassName="is-active"
                         >
-                          <div className="profile">
-                            <Fa icon="user" className="user-icon" /> Post
+                          <div className="profile" onClick={this.onClick}>
+                            <Fa icon="user" className="user-icon" /> POST
                           </div>
                         </NavLink>
                       </NavItem>
                     );
                   } else {
                     return (
-                      <p className="please-login"> Please login to post </p>
+                      <p className="please-login"> Please login to post</p>
                     );
                   }
                 }}

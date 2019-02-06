@@ -8,37 +8,38 @@
 	padding-top: 20px;
 	padding-bottom: 10px;
 	z-index: 1;
+	/*margin-top: 40px !important;*/
 }
 @media (max-width: 750px) {
 	.detail-mainContainer {
-		margin-top: 35vw;
+		margin-top: 30vw;
 		width: 100%;
 	}
 }
 
 @media (max-width: 500px) {
 	.detail-mainContainer {
-		margin-top: 15vw;
+		margin-top: 25vw;
 	}
 }
 @media (max-width: 450px) {
 	.detail-mainContainer {
-		margin-top: 11vw;
+		margin-top: 10vw;
 	}
 }
 @media (max-width: 400px) {
 	.detail-mainContainer {
-		margin-top: 3vw;
+		margin-top: 8vw;
 	}
 }
 @media (max-width: 350px) {
 	.detail-mainContainer {
-		margin-top: 0.5vw;
+		margin-top: 5vw;
 	}
 }
 @media (max-width: 330px) {
 	.detail-mainContainer {
-		margin-top: 0px;
+		margin-top: 6vw;
 	}
 }
 

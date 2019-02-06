@@ -11,8 +11,8 @@ class CondoDetail extends Component {
 		super();
 		this.state = {
 			condo: {},
-			condoImages : []
-				};
+			condoImages: []
+		};
 	}
 
 	componentDidMount() {
@@ -26,47 +26,69 @@ class CondoDetail extends Component {
 					}
 				}
 				return res.data.condo;
-			}).then(condo=> {
-				if(!!condo.image1){
-					this.setState({condoImages : [...this.state.condoImages , condo.image1]})
-				}
-				if(!!condo.image2){
-					this.setState({condoImages : [...this.state.condoImages , condo.image2]})
-				}
-if(!!condo.image3){
-					this.setState({condoImages : [...this.state.condoImages , condo.image3]})
-				}
-if(!!condo.image4){
-					this.setState({condoImages : [...this.state.condoImages , condo.image4]})
-				}
-if(!!condo.image5){
-					this.setState({condoImages : [...this.state.condoImages , condo.image5]})
-				}
-if(!!condo.image6){
-					this.setState({condoImages : [...this.state.condoImages , condo.image6]})
-				}
-if(!!condo.image7){
-					this.setState({condoImages : [...this.state.condoImages , condo.image7]})
-				}
-if(!!condo.image8){
-					this.setState({condoImages : [...this.state.condoImages , condo.image8]})
-				}
-if(!!condo.image9){
-					this.setState({condoImages : [...this.state.condoImages , condo.image9]})
-				}
-if(!!condo.image10){
-					this.setState({condoImages : [...this.state.condoImages , condo.image10]})
-				}
+			})
+			.then(condo => {
+				//convert to arraya and filter??
+				// const condoArray = [...condo];
 
+				// const images = condoArray.filter((item , key ) => item.key === image1 || iamge2 || image3 || .. )
 
+				if (!!condo.image1) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image1]
+					});
+				}
+				if (!!condo.image2) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image2]
+					});
+				}
+				if (!!condo.image3) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image3]
+					});
+				}
+				if (!!condo.image4) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image4]
+					});
+				}
+				if (!!condo.image5) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image5]
+					});
+				}
+				if (!!condo.image6) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image6]
+					});
+				}
+				if (!!condo.image7) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image7]
+					});
+				}
+				if (!!condo.image8) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image8]
+					});
+				}
+				if (!!condo.image9) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image9]
+					});
+				}
+				if (!!condo.image10) {
+					this.setState({
+						condoImages: [...this.state.condoImages, condo.image10]
+					});
+				}
 			})
 
 			.catch(err => console.log(err));
 	}
 
 	render() {
-
-
 		if (!this.state.condo) {
 			return (
 				<div
@@ -79,7 +101,10 @@ if(!!condo.image10){
 		} else {
 			return (
 				<div className="condo-detail-page-main-container">
-					<CondoImages condo = {this.state.condo} condoImages = {this.state.condoImages}/>
+					<CondoImages
+						condo={this.state.condo}
+						condoImages={this.state.condoImages}
+					/>
 					<DetailInfo condo={this.state.condo} />
 				</div>
 			);

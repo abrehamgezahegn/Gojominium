@@ -8,7 +8,7 @@
 .condos-scroll-container {
 	display: flex;
 	flex-direction: row;
-	max-height: 325px !important;
+	height: 325px !important;
 	overflow-x: scroll;
 	padding-bottom: 10px;
 	padding-left: 20px;
@@ -37,3 +37,4 @@
 .featured-card-card {
 	height: 260px !important;
 }
+

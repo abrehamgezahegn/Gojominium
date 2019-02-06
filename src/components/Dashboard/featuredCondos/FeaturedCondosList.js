@@ -24,29 +24,21 @@ class FeaturedCondosList extends Component {
 
 	render() {
 		const { featuredCondos } = this.state;
-
-		const condo = {
-			id: "123sadasd",
-			image1: "",
-			sellorrent: "For sell",
-			price: 10000,
-			type: "One bedroom",
-			location: "Jemo"
-		};
+		console.log(featuredCondos);
 
 		return (
 			<div className="featured-main-container shadow-3">
 				<h5 className="featured-header-text"> Featured Apartments </h5>
 				<div className="condos-scroll-container">
-					{featuredCondos.length < 5 && (
+					{featuredCondos.length < 3 && (
 						<div
 							className="d-flex justify-content-center"
 							style={{ width: "100%" }}
 						>
-							<Spin spinning={featuredCondos.length < 5} />
+							<Spin spinning={featuredCondos.length < 3} />
 						</div>
 					)}
-					{featuredCondos.length > 6 &&
+					{featuredCondos.length > 3 &&
 						featuredCondos.map(condo => (
 							<FeaturedDashCard key={condo.id} condo={condo} />
 						))}
@@ -57,4 +49,5 @@ class FeaturedCondosList extends Component {
 }
 
 export default FeaturedCondosList;
+
 

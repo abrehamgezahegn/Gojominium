@@ -68,7 +68,7 @@ const Footer = () => (
 						if (context.isAuthed()) {
 							return (
 								<div>
-									<p> Sign up to post your condominum. </p>
+									
 									<Button onClick={context.denieAccess}>
 										{" "}
 										Logout{" "}
@@ -77,7 +77,8 @@ const Footer = () => (
 							);
 						} else {
 							return (
-								<Button
+								<div>
+								<p> Sign up to post your condominum. </p><Button
 									className="signup-button"
 									onClick={() => {
 										context.setModalVisible(true);
@@ -86,6 +87,8 @@ const Footer = () => (
 									{" "}
 									Log in or Sign up{" "}
 								</Button>
+								</div>
+								
 							);
 						}
 					}}

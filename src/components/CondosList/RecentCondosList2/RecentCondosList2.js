@@ -29,15 +29,15 @@ class RecentCondosList extends Component {
 				{" "}
 				<h6 className="featured2-header-text"> Recent Apartments</h6>
 				<div className="featured2-condos-container">
-					{recentCondos.length < 5 && (
+					{recentCondos.length < 2 && (
 						<div
 							className="d-flex justify-content-center"
 							style={{ width: "100%" }}
 						>
-							<Spin spinning={recentCondos.length < 5} />
+							<Spin spinning={recentCondos.length < 2} />
 						</div>
 					)}
-					{recentCondos.length > 5 &&
+					{recentCondos.length > 2 &&
 						recentCondos.map(condo => (
 							<RecentListCondoCard key={condo.id} condo={condo} />
 						))}

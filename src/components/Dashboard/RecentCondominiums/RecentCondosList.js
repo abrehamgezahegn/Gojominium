@@ -31,7 +31,7 @@ class RecentCondosList extends Component {
 			<div className="featured-main-container shadow-3">
 				{" "}
 				<h5 className="featured-header-text"> Recent Apartments</h5>
-				<div className="recent-condos-container">
+				<div className="condos-scroll-container">
 					{recentCondos.length < 5 && (
 						<div
 							className="d-flex justify-content-center"

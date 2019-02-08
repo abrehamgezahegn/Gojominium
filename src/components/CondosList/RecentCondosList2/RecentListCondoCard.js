@@ -11,10 +11,14 @@ class DashCondoCard extends Component {
 		const { condo } = this.props;
 		return (
 			<div
-				style={{ width: "200px", marginRight: "50px" }}
-				className="animation-wrapper"
+				style={{
+					width: "200px",
+					marginRight: "35px",
+					marginLeft: "10px"
+				}}
+				className="animation-wrapper recent-card-main"
 			>
-				<div className="card">
+				<div className="featured-card-card">
 					<div className="view overlay">
 						<img
 							className="card-img-top"
@@ -30,7 +34,7 @@ class DashCondoCard extends Component {
 						</a>
 					</div>
 
-					<div className="card-body">
+					<div className="card-body  recent-card-body">
 						<div className="d-flex justify-content-between">
 							{" "}
 							<Link to={`/detail/${condo.id}`}>
@@ -75,15 +79,15 @@ class DashCondoCard extends Component {
 								<Fa
 									icon="bed"
 									size="lg"
-									className="card-icon"
+									className="card-icon mt-1"
 								/>
 								<p className="bed-rooms"> {condo.type}</p>{" "}
 							</div>
-							<div>
+							<div className="text-left">
 								<Fa
 									icon="map-marker"
 									size="lg"
-									className="ml-2 mr-3"
+									className="ml-2 mr-3 "
 								/>{" "}
 								{condo.location}
 							</div>

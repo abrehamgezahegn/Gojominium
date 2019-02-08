@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Fa } from "mdbreact";
 import { Link } from "react-router-dom";
+import "../featuredCondos/featuredCondos.css";
 
 class DashCondoCard extends Component {
 	formatWithComma = price => {
@@ -14,15 +15,19 @@ class DashCondoCard extends Component {
 				style={{
 					width: "200px",
 					marginRight: "58px",
-					marginLeft: "10px"
+					marginLeft: "10px",
+					height: "260px"
 				}}
 			>
-				<div className="card mr-1">
+				<div className="featured-card-card">
 					<div className="view overlay">
 						<img
 							className="card-img-top"
-									src={condo.image1 || "https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
-}							alt="condo-card"
+							src={
+								condo.image1 ||
+								"https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
+							}
+							alt="condo-card"
 						/>
 
 						<a href="#!">
@@ -30,7 +35,7 @@ class DashCondoCard extends Component {
 						</a>
 					</div>
 
-					<div className="card-body">
+					<div className="card-body recent-card-body">
 						<div className="d-flex justify-content-between">
 							{" "}
 							<Link to={`/detail/${condo.id}`}>

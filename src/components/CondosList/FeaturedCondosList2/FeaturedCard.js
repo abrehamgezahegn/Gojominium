@@ -11,7 +11,7 @@ class FeaturedCard extends Component {
 		const { condo } = this.props;
 
 		return (
-			<div>
+			<div className="card-main">
 				<Animation
 					type="jello"
 					duration="800ms"
@@ -19,11 +19,12 @@ class FeaturedCard extends Component {
 					style={{
 						width: "200px",
 						hieght: "240px",
-						marginRight: "50px"
+						marginRight: "35px",
+						marginLeft: "10px"
 					}}
 					className="animation-wrapper"
 				>
-					<div className="card mr-1 featured-card-card">
+					<div className="mr-1 featured-card-card">
 						<div className="view overlay">
 							<img
 								className="card-img-top"
@@ -80,7 +81,7 @@ class FeaturedCard extends Component {
 										<p> </p>
 									)}
 								</div>
-								<div className="d-flex flex-row">
+								<div className="d-flex flex-row mt-1">
 									{" "}
 									<Fa
 										icon="bed"
@@ -89,7 +90,7 @@ class FeaturedCard extends Component {
 									/>
 									<p className="bed-rooms"> {condo.type}</p>{" "}
 								</div>
-								<div>
+								<div className=" text-left">
 									<Fa
 										icon="map-marker"
 										size="lg"

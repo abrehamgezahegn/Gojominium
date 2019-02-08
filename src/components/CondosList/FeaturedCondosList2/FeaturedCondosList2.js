@@ -25,6 +25,7 @@ class FeaturedCondosList extends Component {
 
 	render() {
 		const { featuredCondos } = this.state;
+
 		return (
 			<div className="featured2-main-container shadow-3">
 				{" "}

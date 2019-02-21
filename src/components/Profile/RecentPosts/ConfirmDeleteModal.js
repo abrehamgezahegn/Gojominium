@@ -7,7 +7,7 @@ class ConfirmDeleteModal extends Component {
     return (
       <div>
         <Modal
-          title="Confirm Please"
+          title="Are you sure?"
           centered
           visible={this.props.isModalVisible}
           onOk={() => this.props.setModalVisible(false)}
@@ -16,7 +16,6 @@ class ConfirmDeleteModal extends Component {
           destroyOnClose={true}
 
         >
-          <p className="text-center mt-2 mb-2"> Are you sure? </p>
           {
             <div className="text-center mb-3">
               <Button

@@ -13,6 +13,8 @@ class ConfirmDeleteModal extends Component {
           onOk={() => this.props.setModalVisible(false)}
           onCancel={() => this.props.setModalVisible(false)}
           maskClosable={false}
+          destroyOnClose={true}
+
         >
           <p className="text-center mt-2 mb-2"> Are you sure? </p>
           {

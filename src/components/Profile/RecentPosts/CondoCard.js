@@ -10,7 +10,7 @@ class CondoCard extends Component {
 	render() {
 		const { condo } = this.props;
 		return (
-			<div style={{ padding: "3px 10px 3px 10px", hieght: "200px" }}>
+			<div style={{ padding: "3px 10px 3px 10px", hieght: "200px" , marginRight: "20px"}}>
 				<div className="card">
 					<div className="view overlay">
 						<img

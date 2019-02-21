@@ -1,10 +1,6 @@
 .filters-main-container {
 	width: 92%;
 	color: rgba(0, 0, 0, 0.88);
-	/*background-image: url("https://wallpapercave.com/wp/wp2449376.jpg");
-	background-repeat: no-repeat;
-	background-size: auto;
-	/*background-attachment: fixed;*/
 	background-color: #263238;
 	margin-top: 82px;
 	margin-bottom: 20px;
@@ -38,10 +34,6 @@
 	}
 }
 
-.range-header {
-	margin-right: 140px;
-}
-
 .main-container-container {
 	width: 100%;
 }
@@ -54,13 +46,26 @@
 
 .range {
 	width: 150px !important;
-	height: 26px;
+	height: 32px;
 	border: none;
 	margin-bottom: 10px;
 	font-weight: 500;
 	letter-spacing: 2px;
 	/*font-size: 20px;*/
 }
+
+@media (max-width: 1094px) {
+	.range {
+		margin-top: 20px;
+	}
+}
+
+@media (max-width: 640px) {
+	.range {
+		margin-left: 20px;
+	}
+}
+
 @media (max-width: 393px) {
 	.range {
 		width: 120px !important;
@@ -100,3 +105,10 @@
 	padding-top: 1px !important;
 }
 
+.filter-select {
+	width: 110px;
+}
+
+.ant-select-dropdown-menu-item {
+	font-size: 13.5px;
+}

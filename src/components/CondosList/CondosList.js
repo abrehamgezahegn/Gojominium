@@ -81,6 +81,8 @@ class CondosList extends Component {
 	};
 
 	handleClearFilters = () => {
+		if(this.state.isDisplayingFiltered){
+			
 		this.setState({
 			isDisplayingFiltered: false,
 			offsetAll: 1,
@@ -106,7 +108,9 @@ class CondosList extends Component {
 				console.log(err);
 				this.setState({ networkErr: true });
 			});
-	};
+	
+
+		}};
 
 	handleLoadMore = () => {
 		this.setState({ isLoading: true, networkErr: false });
@@ -187,9 +191,7 @@ class CondosList extends Component {
 						<p> </p>
 					)}
 					<div className="the-main-container">
-						<div className="d-flex flex-column">
-							<FeaturedCondosList2 /> <RecentCondosList2 />
-						</div>{" "}
+						{" "}
 						<MainCondosList
 							allCondominiums={this.state.allCondominiums}
 							handleLoadPrev={this.handleLoadPrev}
@@ -201,6 +203,9 @@ class CondosList extends Component {
 							isLoading={this.state.isLoading}
 							message={this.state.message}
 						/>
+						<div className="d-flex flex-column">
+							<FeaturedCondosList2 /> <RecentCondosList2 />
+						</div>
 					</div>
 				</div>
 			);

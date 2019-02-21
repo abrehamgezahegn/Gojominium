@@ -13,8 +13,8 @@ class DashCondoCard extends Component {
 			<div
 				style={{
 					width: "200px",
-					marginRight: "35px",
-					marginLeft: "10px"
+					// marginRight: "65px",
+					// marginLeft: "20px"
 				}}
 				className="animation-wrapper recent-card-main"
 			>

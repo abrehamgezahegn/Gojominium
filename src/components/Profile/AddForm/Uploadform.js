@@ -3,6 +3,7 @@ import { Upload, Icon, Button } from "antd";
 import "./AddForm.css";
 import { Animation } from "mdbreact";
 
+
 class Uploadfrom extends Component {
 	constructor(props) {
 		super(props);
@@ -44,6 +45,21 @@ class Uploadfrom extends Component {
 				errMessage: "More than 10 pictures is not allowed"
 			});
 		} else {
+
+			// var compressedImages = [];
+			// this.state.images.map(image=>{
+			// 	Jimp.read(image.name).then(img=>{
+			// 		if(img.bitmap.data.length > 0.0001){
+			// 			img.quality(50);
+			// 		}
+			// 	})
+
+			// compressedImages = [compressedImages,...image]
+
+			// })
+			
+			// console.log(compressedImages)
+
 			this.props.nextImage(this.state.images);
 		}
 	};

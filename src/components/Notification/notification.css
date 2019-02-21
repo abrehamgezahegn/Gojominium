@@ -1,0 +1,15 @@
+.success-notify {
+	margin-top: 200px;
+}
+
+.ant-notification-notice-message {
+	margin-top: 2px !important;
+}
+
+.ant-notification-notice {
+	width: 288px !important;
+}
+
+.ant-notification-topRight {
+	margin-right: 0px !important;
+}

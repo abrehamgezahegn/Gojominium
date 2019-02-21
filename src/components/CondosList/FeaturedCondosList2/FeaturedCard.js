@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Fa, Animation } from "mdbreact";
 import { Link } from "react-router-dom";
+import Jimp from "jimp/es";
+
 
 class FeaturedCard extends Component {
 	formatWithComma = price => {
@@ -19,8 +21,6 @@ class FeaturedCard extends Component {
 					style={{
 						width: "200px",
 						hieght: "240px",
-						marginRight: "35px",
-						marginLeft: "10px"
 					}}
 					className="animation-wrapper"
 				>
@@ -28,9 +28,7 @@ class FeaturedCard extends Component {
 						<div className="view overlay">
 							<img
 								className="card-img-top"
-								src={
-									condo.image1 ||
-									"https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
+								src={ condo.image1 || "https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png"
 								}
 								alt="condo-card"
 							/>

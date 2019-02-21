@@ -12,6 +12,8 @@ import jwt from "jsonwebtoken";
 import { herokuApi } from "../../../config/apiroutes";
 import { storage } from "../../../firebase/firebaseConfig";
 import moment from "moment";
+import openNotificationWithIcon from "../../Notification/notification"
+
 
 const Step = Steps.Step;
 
@@ -195,7 +197,7 @@ class AddForm2 extends Component {
 	handleAreaChange = e => {
 		const area = e.target.value;
 		if (area.length < 7)
-			if (!area || area.match(/^\d{1,4}(\.\d{0,2})?$/)) {
+			if (!area || area.match(/^\d{1,3}(\.\d{0,2})?$/)) {
 				this.setState({ area });
 			}
 	};
@@ -377,11 +379,14 @@ class AddForm2 extends Component {
 				if (res) {
 					if (res.data === "successfully editted") {
 						this.props.historyPush();
+						openNotificationWithIcon("success", "Successfully Updated")
 					} else {
 						this.setState({
 							errorMessage:
 								"Something went wrong please try agian!!"
 						});
+					openNotificationWithIcon("errpr", "Opps, Error")
+
 					}
 				}
 			});
@@ -394,11 +399,15 @@ class AddForm2 extends Component {
 				if (res) {
 					if (res.data === "successfully posted") {
 						this.props.historyPush();
+						openNotificationWithIcon("success", "Successfully Posted")
+
 					}
 				} else {
 					this.setState({
 						errorMessage: "Something went wrong please try agian!!"
 					});
+				   openNotificationWithIcon("error", "Opps, Error")
+
 				}
 			});
 		}

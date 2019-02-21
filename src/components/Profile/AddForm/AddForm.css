@@ -211,7 +211,7 @@ img {
 	opacity: 0.6 !important;
 }
 .select-options {
-	width: 200px !important;
+	width: 200px;
 	margin-right: 30px !important;
 	margin-bottom: 6% !important;
 }

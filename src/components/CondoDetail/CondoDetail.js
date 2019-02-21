@@ -11,7 +11,8 @@ class CondoDetail extends Component {
 		super();
 		this.state = {
 			condo: {},
-			condoImages: []
+			condoImages: [],
+			isLoading: true
 		};
 	}
 
@@ -28,11 +29,6 @@ class CondoDetail extends Component {
 				return res.data.condo;
 			})
 			.then(condo => {
-				//convert to arraya and filter??
-				// const condoArray = [...condo];
-
-				// const images = condoArray.filter((item , key ) => item.key === image1 || iamge2 || image3 || .. )
-
 				if (!!condo.image1) {
 					this.setState({
 						condoImages: [...this.state.condoImages, condo.image1]
@@ -83,16 +79,18 @@ class CondoDetail extends Component {
 						condoImages: [...this.state.condoImages, condo.image10]
 					});
 				}
+
+				this.setState({isLoading: false})
 			})
 
 			.catch(err => console.log(err));
 	}
 
 	render() {
-		if (!this.state.condo) {
+		if (this.state.isLoading) {
 			return (
 				<div
-					style={{ width: "100%" }}
+					style={{ width: "100%" , marginTop: "250px" , marginBottom:"100px" }}
 					className="d-flex justify-content-center"
 				>
 					<Spin spinning={!!this.state.condo} />{" "}
@@ -105,7 +103,7 @@ class CondoDetail extends Component {
 						condo={this.state.condo}
 						condoImages={this.state.condoImages}
 					/>
-					<DetailInfo condo={this.state.condo} />
+					<DetailInfo condo={this.state.condo} url={this.props.match.url} />
 				</div>
 			);
 		}

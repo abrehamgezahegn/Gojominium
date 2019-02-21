@@ -101,11 +101,10 @@ class Filters extends Component {
 							<div>
 								<Select
 									showSearch
-									style={{ width: 200 }}
 									placeholder="Location"
 									optionFilterProp="children"
 									onChange={this.handleFLocChange}
-									className="select-options location z-depth-1-half"
+									className="select-options location z-depth-1-half filter-select"
 									filterOption={(input, option) =>
 										option.props.children
 											.toLowerCase()
@@ -124,11 +123,10 @@ class Filters extends Component {
 							</div>
 							<div>
 								<Select
-									style={{ width: 160 }}
 									placeholder="Type"
 									optionFilterProp="children"
 									onChange={this.handleFTypeChange}
-									className="select-options type z-depth-1-half"
+									className="select-options type z-depth-1-half  filter-select"
 								>
 									{types.map(type => (
 										<Option
@@ -142,11 +140,10 @@ class Filters extends Component {
 							</div>
 							<div>
 								<Select
-									style={{ width: 160 }}
 									placeholder="For"
 									optionFilterProp="children"
 									onChange={this.handleFStatusChange}
-									className="select-options status z-depth-1-half"
+									className="select-options status z-depth-1-half filter-select"
 								>
 									{statuses.map(status => (
 										<Option
@@ -159,17 +156,9 @@ class Filters extends Component {
 								</Select>
 							</div>
 							<div>
-								<div>
-									{" "}
-									<p className="font-weight-bold mb-2 range-header">
-										Price Range(in Birr){" "}
-									</p>
-								</div>
 								<div className="d-flex flex-row flex-wrap">
 									<div className="d-flex flex-column">
-										<div className="text-left ml-2 range-header">
-											Lowest
-										</div>
+			
 										<div>
 											<input
 												type="text"
@@ -182,10 +171,7 @@ class Filters extends Component {
 										</div>
 									</div>
 									<div className="d-flex flex-column ">
-										<div className="text-left ml-2 range-header">
-											{" "}
-											Highest
-										</div>
+									
 										<input
 											type="text"
 											value={this.state.maxPrice}

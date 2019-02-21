@@ -5,6 +5,7 @@ import axios from "axios";
 import jwt from "jsonwebtoken";
 import ConfirmDeleteModal from "./ConfirmDeleteModal";
 import { Spin } from "antd";
+import openNotificationWithIcon from "../../Notification/notification"
 import { herokuApi } from "../../../config/apiroutes";
 
 class RecentPosts extends Component {
@@ -64,10 +65,16 @@ class RecentPosts extends Component {
 					deleteLoading: false
 				});
 				this.setModalVisible(false);
+				openNotificationWithIcon("success" , "Successfully Deleted")
 			} else {
 				this.setState({ deleteLoading: false });
 			}
-		});
+		}).catch(err=> {
+			this.setModalVisible(false);
+			this.setState({ deleteLoading: false });
+			openNotificationWithIcon("error" , "Opps, Error");
+		
+		})
 	};
 	render() {
 		return (
@@ -81,7 +88,7 @@ class RecentPosts extends Component {
 						</p>
 					</div>
 				</div>
-				<div className="text-center mt-3 mb-5">
+				<div className="text-center mt-3 mb-3">
 					{this.state.isLoading && (
 						<Spin spinning={this.state.isLoading} />
 					)}
@@ -94,7 +101,8 @@ class RecentPosts extends Component {
 							style={{
 								fontWeight: "600",
 								color: "rgba(0,0,0,0.7)",
-								marginBottom: "300px"
+								marginBottom: "300px",
+								marginTop: 100
 							}}
 						>
 							{" "}

@@ -64,6 +64,7 @@ class NavbarFeatures extends Component {
                   activeClassName="is-active"
                   exact={true}
                   onClick={this.onClick}
+                  className = "nav-item-text"
                 >
                   HOME
                 </NavLink>
@@ -73,6 +74,8 @@ class NavbarFeatures extends Component {
                   to="/condos"
                   activeClassName="is-active"
                   onClick={this.onClick}
+                  className = "nav-item-text"
+
                 >
                   {" "}
                   APARTMENTS{" "}
@@ -82,6 +85,8 @@ class NavbarFeatures extends Component {
                 className="nav-item "
                 onClick={this.scrollToBottom}
                 activeClassName="is-active"
+                 className = "nav-item-text"
+
               >
                 {" "}
                 <p className="contact-us" onClick={this.onClick}>

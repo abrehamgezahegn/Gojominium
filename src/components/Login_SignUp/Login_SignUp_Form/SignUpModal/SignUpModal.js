@@ -20,6 +20,7 @@ class SignUpModal extends Component {
             grantAccess={this.props.grantAccess}
             setUserId={this.props.setUserId}
             setModal2Visible={this.props.setModal2Visible}
+            setModalVisible = {this.props.setModalVisible}
           />
         </Modal>
       </div>

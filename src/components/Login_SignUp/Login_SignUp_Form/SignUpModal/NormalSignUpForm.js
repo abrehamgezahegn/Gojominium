@@ -6,6 +6,7 @@ import owasp from "owasp-password-strength-test";
 import "../../Login_Modal.css";
 import { herokuApi } from "../../../../config/apiroutes";
 
+
 owasp.config({
 	allowPassphrases: true,
 	maxLength: 128,
@@ -185,6 +186,10 @@ class NormalSignUpForm extends Component {
 							</Button>
 						</Spin>
 					</FormItem>
+
+						<Button className="w-100 mb-4" onClick={ () => {this.props.setModal2Visible(false) , this.props.setModalVisible(true)}}>
+							Have an account? Login now!
+						</Button>
 				</Form>
 			</div>
 		);

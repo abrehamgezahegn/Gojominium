@@ -140,15 +140,15 @@ class NormalLoginForm extends Component {
 								Log in
 							</Button>
 						</Spin>
-						Or{" "}
-						<Button onClick={() => this.setModal2Visible(true)}>
+						<Button onClick={() => this.setModal2Visible(true)} className="mt-3">
 							{" "}
-							Register now!{" "}
+							Create an account!{" "}
 						</Button>
 					</FormItem>
 				</Form>
 				<SignUpModal
 					setModal2Visible={this.setModal2Visible}
+					setModalVisible={this.props.setModalVisible}
 					modal2Visible={this.state.modal2Visible}
 					grantAccess={this.props.grantAccess}
 					setUserId={this.props.setUserId}

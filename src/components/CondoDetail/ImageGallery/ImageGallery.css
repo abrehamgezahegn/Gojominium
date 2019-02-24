@@ -33,6 +33,7 @@
 
 .image-gallery-image img {
 	max-height: 380px;
+	min-width: 320px !important;
 }
 
 @media (max-width: 505px) {
@@ -95,5 +96,21 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+}
+
+.image-gallery-slide img {
+	min-width: 450px !important;
+}
+
+@media (max-width: 1100px) {
+	.image-gallery-slide img {
+		min-width: 400px !important;
+	}
+}
+
+@media (max-width: 500px) {
+	.image-gallery-slide img {
+		min-width: 320px !important;
 	}
 }

@@ -47,6 +47,7 @@ class NormalSignUpForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
+		this.setState({errorMessage: ""});
 		this.props.form.validateFields((err, values) => {
 			if (!err) {
 				// console.log("Received values of form: ", values);
@@ -83,9 +84,11 @@ class NormalSignUpForm extends Component {
 						}
 					} catch (err) {
 						console.log(err);
-						this.setState({ isLoading: false });
+						this.setState({ errorMessage: "connection error, please try again!" , isLoading: false });
 					}
-				});
+				}).catch(err=>{
+					this.setState({ errorMessage: "connectoin error, please try again!" , isLoading: false })
+				})
 			}
 		});
 	};

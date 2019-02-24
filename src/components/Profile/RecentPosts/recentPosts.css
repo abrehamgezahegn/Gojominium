@@ -143,20 +143,17 @@
 }
 
 .recent-condos-container::-webkit-scrollbar {
-	/*width: 12px;   for vertical scrollbars */
 	height: 15px; /* for horizontal scrollbars */
 	padding: 4px;
 	margin-top: 10px;
 }
 @media (max-width: 600px) {
 	.recent-condos-container::-webkit-scrollbar {
-		/*width: 12px;   for vertical scrollbars */
 		height: 8px; /* for horizontal scrollbars */
 	}
 }
 @media (max-width: 1000px) {
 	.recent-condos-container::-webkit-scrollbar {
-		/*width: 12px;   for vertical scrollbars */
 		height: 12px; /* for horizontal scrollbars */
 	}
 }

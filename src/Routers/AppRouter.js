@@ -12,61 +12,61 @@ import { MyAuthProvider } from "../contexts/MyAuthProvider";
 import jwt from "jsonwebtoken";
 
 const checkAuth = () => {
-	const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-	if (!token) {
-		return false;
-	}
+  if (!token) {
+    return false;
+  }
 
-	// try {
-	// 	const { exp } = jwt.decode(token);
+  // try {
+  // 	const { exp } = jwt.decode(token);
 
-	// 	if (exp < new Date().getTime() / 1000) {
-	// 		return false;
-	// 	}
-	// } catch (err) {
-	// 	return false;
-	// }
+  // 	if (exp < new Date().getTime() / 1000) {
+  // 		return false;
+  // 	}
+  // } catch (err) {
+  // 	return false;
+  // }
 
-	return true;
+  return true;
 };
 
 const AuthRoute = ({ component: Component, ...rest }) => (
-	<Route
-		{...rest}
-		render={props =>
-			checkAuth() ? (
-				<Component {...props} />
-			) : (
-				<Redirect to={{ pathname: "/" }} />
-			)
-		}
-	/>
+  <Route
+    {...rest}
+    render={(props) =>
+      checkAuth() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: "/" }} />
+      )
+    }
+  />
 );
 
 const AppRouter = () => (
-	<div>
-		<MyAuthProvider>
-			<BrowserRouter>
-				<div>
-					<NavbarFeatures />
-					<Switch>
-						<Route path="/" component={Dashboard} exact={true} />
-						<AuthRoute path="/profile" component={Profile} />
-						<AuthRoute path="/editform" component={EditForm} />
-						<Route path="/condos" component={CondosList} />
-						<Route
-							path="/detail/:condoId"
-							component={CondoDetail}
-							exact={true}
-						/>
-						<Route component={PageNotFound} />
-					</Switch>
-					<Footer />
-				</div>
-			</BrowserRouter>
-		</MyAuthProvider>
-	</div>
+  <div>
+    <MyAuthProvider>
+      <BrowserRouter>
+        <div>
+          <NavbarFeatures />
+          <Switch>
+            <Route path="/" component={Dashboard} exact={true} />
+            <AuthRoute path="/profile" component={Profile} />
+            <AuthRoute path="/editform" component={EditForm} />
+            <Route path="/condos" component={CondosList} />
+            <Route
+              path="/detail/:condoId"
+              component={CondoDetail}
+              exact={true}
+            />
+            <Route component={PageNotFound} />
+          </Switch>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </MyAuthProvider>
+  </div>
 );
 
 export default AppRouter;

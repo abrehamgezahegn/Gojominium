@@ -6,8 +6,8 @@ import {
   NavbarToggler,
   Collapse,
   NavItem,
-  NavLink
 } from "mdbreact";
+import { NavLink } from "react-router-dom";
 import { Fa } from "mdbreact";
 import "./Nav.css";
 import LoginModal from "../Login_SignUp/LoginModal";
@@ -18,7 +18,7 @@ class NavbarFeatures extends Component {
     super(props);
     this.state = {
       collapse: false,
-      isWideEnough: false
+      isWideEnough: false,
     };
     this.onClick = this.onClick.bind(this);
   }
@@ -64,7 +64,7 @@ class NavbarFeatures extends Component {
                   activeClassName="is-active"
                   exact={true}
                   onClick={this.onClick}
-                  className = "nav-item-text"
+                  className="nav-item-text"
                 >
                   HOME
                 </NavLink>
@@ -74,8 +74,7 @@ class NavbarFeatures extends Component {
                   to="/condos"
                   activeClassName="is-active"
                   onClick={this.onClick}
-                  className = "nav-item-text"
-
+                  className="nav-item-text"
                 >
                   {" "}
                   APARTMENTS{" "}
@@ -85,8 +84,7 @@ class NavbarFeatures extends Component {
                 className="nav-item "
                 onClick={this.scrollToBottom}
                 activeClassName="is-active"
-                 className = "nav-item-text"
-
+                className="nav-item-text"
               >
                 {" "}
                 <p className="contact-us" onClick={this.onClick}>
@@ -96,7 +94,7 @@ class NavbarFeatures extends Component {
             </NavbarNav>
             <NavbarNav right>
               <AuthConsumer>
-                {context => {
+                {(context) => {
                   if (context.isAuthed()) {
                     return (
                       <NavItem className="nav-item ">
@@ -121,7 +119,7 @@ class NavbarFeatures extends Component {
 
               <NavItem>
                 <AuthConsumer>
-                  {context => {
+                  {(context) => {
                     if (context.isAuthed()) {
                       return (
                         <div
